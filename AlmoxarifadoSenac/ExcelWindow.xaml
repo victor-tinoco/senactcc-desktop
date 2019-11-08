@@ -1,0 +1,27 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="AlmoxarifadoSenac.ExcelWindow"
+        mc:Ignorable="d"
+        Title="ExcelWindow" Height="116.4" Width="455.6">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="409*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="txtNomeExcel" MaxLength="20"
+            materialDesign:HintAssist.Hint="Nome Do Excel"
+            FontSize="14" VerticalAlignment="Top"
+            HorizontalAlignment="Left"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,14,0,0" Width="307" Height="41" />
+        <Button x:Name="btnSalvar"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="334,25,0,0" Content="SALVAR" Width="87" Click="BtnSalvar_Click" />
+
+    </Grid>
+</Window>

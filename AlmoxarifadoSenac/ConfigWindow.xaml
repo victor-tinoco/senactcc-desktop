@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="AlmoxarifadoSenac.ConfigWindow"
+        mc:Ignorable="d"
+        Title="Configurações" Height="371.6" Width="344" Topmost="True" ContentRendered="Window_ContentRendered" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Configurações" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+            FontSize="25" FontWeight="Bold"/>
+
+        <TextBox x:Name="txtServidor"
+            materialDesign:HintAssist.Hint="Servidor" MaxLength="100"
+            FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,58,0,0" Width="318"  />
+        <TextBox x:Name="txtBD"
+            materialDesign:HintAssist.Hint="Nome do Banco de Dados" MaxLength="100"
+            FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,116,0,0" Width="318"  />
+        <TextBox x:Name="txtUsuario"
+            materialDesign:HintAssist.Hint="Usuário" MaxLength="100"
+            FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,177,0,0" Width="318"  />
+        <PasswordBox x:Name="txtSenha"
+            materialDesign:HintAssist.Hint="Senha" MaxLength="100"
+            FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10,237,0,0" Width="318"  />
+        <Button x:Name="btnSalvar"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="241,300,0,0" Content="SALVAR" Width="87" Click="BtnSalvar_Click"/>
+
+    </Grid>
+</Window>

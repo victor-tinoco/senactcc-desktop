@@ -1,0 +1,18 @@
+﻿<Window x:Class="AlmoxarifadoSenac.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        mc:Ignorable="d"
+        Title="Menu" Height="247.881" Width="561.653" ContentRendered="Window_ContentRendered" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="Usuario:" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblUsuario" Content="Fulano de Tal" FontSize="14" FontWeight="DemiBold" HorizontalAlignment="Left" Margin="74,178,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnAgendamentos" Content="Agendamentos" HorizontalAlignment="Left" Margin="10,33,0,0" VerticalAlignment="Top" Width="129" Height="129" Click="BtnAgendamentos_Click"/>
+        <Button x:Name="btnEquipamentos" Content="Equipamentos" HorizontalAlignment="Left" Margin="144,33,0,0" VerticalAlignment="Top" Width="129" Height="129" Click="BtnEquipamentos_Click"/>
+        <Button x:Name="btnFuncionarios" Content="Funcionários" HorizontalAlignment="Left" Margin="278,33,0,0" VerticalAlignment="Top" Width="129" Height="129" Click="BtnFuncionarios_Click"/>
+        <Button x:Name="btnCategorias" Content="Categorias" HorizontalAlignment="Left" Margin="412,33,0,0" VerticalAlignment="Top" Width="129" Height="129" Click="BtnCategorias_Click"/>
+
+    </Grid>
+</Window>

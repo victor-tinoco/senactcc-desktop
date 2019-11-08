@@ -1,0 +1,33 @@
+﻿<Window x:Class="AlmoxarifadoSenac.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        
+        mc:Ignorable="d"
+        Title="Login" Height="355.085" Width="374" WindowStartupLocation="CenterScreen" ContentRendered="Window_ContentRendered">
+    <Grid>
+        <TextBox x:Name="txtLogin"
+  materialDesign:HintAssist.Hint="Login" VerticalAlignment="Top" HorizontalAlignment="Left"  MaxLength="100"
+  Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="16" Margin="10,156,0,0" Width="346" />
+        <PasswordBox
+  x:Name="txtSenha" MaxLength="50"
+  VerticalAlignment="Top"
+  HorizontalAlignment="Left"
+  materialDesign:HintAssist.Hint="Senha"
+  materialDesign:HintAssist.Foreground="Orange"
+  materialDesign:TextFieldAssist.UnderlineBrush="Orange"
+  FontSize="16"
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="10,209,0,0" Width="346" />
+        <Button x:Name="btnEntrar" Content="ENTRAR" 
+                HorizontalAlignment="Left" Margin="262,280,0,0" 
+                VerticalAlignment="Top" Width="94"
+                FontSize="16" Click="BtnEntrar_Click"/>
+        <Image HorizontalAlignment="Left" Height="110" Margin="95,28,0,0" VerticalAlignment="Top" Width="176" Source="senaclogo menor.png"/>
+
+    </Grid>
+</Window>
