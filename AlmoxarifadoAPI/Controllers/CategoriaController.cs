@@ -15,12 +15,10 @@ namespace AlmoxarifadoAPI.Controllers
         [Authorize]
         public IHttpActionResult Get()
         {
-            var filtro = "";
             try
             {
-
                 CategoriaRepositorio repo = new CategoriaRepositorio();
-                var Categoria = repo.PesquisarCategoria(filtro);
+                var Categoria = repo.PesquisarCategoria("");
                 return Ok(Categoria);
             }
             catch (Exception ex)
