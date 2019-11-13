@@ -328,5 +328,21 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return agendamento;
         }
+        public Agendamento ConsultarPorId(int Id)
+        {
+            Agendamento equipamento;
+            using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
+            {
+                string script =
+                "select id_agendamento,id_patrimonio" +
+                "from PatrimonioAgendado" +
+                "where id_agendamento = @ID";
+                equipamento = conn.QueryFirstOrDefault<Agendamento>(
+                     script, new { Id });
+
+                Repositorios.CategoriaRepositorio repo = new CategoriaRepositorio();
+            }
+            return equipamento;
+        }
     }
 }

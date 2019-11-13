@@ -103,5 +103,27 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 });
             }
         }
+        public List<PatrimonioAgendado> PesquisarPatrimonioPorAgendamento(string filtro, int id)
+        {
+            List<PatrimonioAgendado> patrimonios;
+            using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
+            {
+                string script =
+                   "select patrimonio.id_patrimonio Id, nmr_patrimonio NumeroPatrimonio,PatrimonioAgendado.id_agendamento IdAgendamento, patrimonio.fl_status Ativo " +
+                   "from Patrimonio " +
+                   "join PatrimonioAgendado on Patrimonio.id_patrimonio = PatrimonioAgendado.id_patrimonio "+
+                   "where PatrimonioAgendado.id_agendamento = @ID "+
+                   "AND nmr_patrimonio like '%'+ @FILTRO + '%'";
+
+                patrimonios = conn.Query<PatrimonioAgendado>(script, new { @FILTRO = filtro, @ID = id }).ToList();
+
+                foreach (var patrimonio in patrimonios)
+                {
+                    AgendamentoRepositorio repo = new AgendamentoRepositorio();
+                   patrimonio.Agendamento = repo.ConsultarPorId(patrimonio.Agendamento.Id);
+                }
+            }
+            return patrimonios;
+        }
     }
 }

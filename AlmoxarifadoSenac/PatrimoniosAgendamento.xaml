@@ -1,0 +1,32 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="AlmoxarifadoSenac.PatrimoniosAgendamento"
+        mc:Ignorable="d"
+        Title="PatrimoniosAgendamento" Height="450" Width="380.717">
+    <Grid>
+
+        <Label Content="Patrimônio do Agendamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" 
+            FontSize="25" FontWeight="Bold"/>
+
+        <TextBox x:Name="txtPesquisar" MaxLength="30"
+        FontSize="16"
+        materialDesign:HintAssist.Hint="Pesquisar"
+        VerticalAlignment="Top" HorizontalAlignment="Left"
+        Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,53,0,0" Width="261" />
+        <Button x:Name="btnBuscar"
+        Style="{StaticResource MaterialDesignRaisedButton}"
+        Width="88"
+        VerticalAlignment="Top" HorizontalAlignment="Left"
+        Margin="276,63,0,0" Click="BtnBuscar_Click" Content="BUSCAR"/>
+        <DataGrid x:Name="dgPatrimonios" HorizontalAlignment="Left" Height="309" Margin="10,100,0,0" FontSize="14" VerticalAlignment="Top" Width="354" CanUserDeleteRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding NumeroPatrimonio}" Width="293" Header="Patrimônio"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

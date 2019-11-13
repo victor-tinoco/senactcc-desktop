@@ -33,6 +33,11 @@
             Margin="631,21,0,0" Content="LIMPAR" Click="BtnLimpar_Click"/>
 
         <DataGrid x:Name="dgCarteira" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="348" Margin="10,72,0,0" FontSize="14" VerticalAlignment="Top" Width="772">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Verificar Patrimonios" Click="VerificarPatrimonio_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Usuario.Nome}" Header="Usuario"/>
                 <DataGridTextColumn Binding="{Binding Equipamento.Nome}" Header="Equipamento"/>

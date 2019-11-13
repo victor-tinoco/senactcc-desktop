@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using control = System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Forms;
@@ -52,6 +52,30 @@ namespace AlmoxarifadoSenac
         private void OpcaoExcluir_Click(object sender, RoutedEventArgs e)
         {
 
+
+        }
+        private void VerificarPatrimonio_Click(object sender, RoutedEventArgs e)
+        {
+            control.MenuItem menuItem = (control.MenuItem)sender;
+
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+                Agendamento equip = (Agendamento)item.SelectedCells[0].Item;
+
+               AgendamentoRepositorio repos = new AgendamentoRepositorio();
+
+                PatrimoniosAgendamento window = new PatrimoniosAgendamento();
+
+                window.AgendamentoSelecionado = equip;
+
+                window.ShowDialog();
+
+                AtualizarDG();
+            }
 
         }
         private void Window_ContentRendered(object sender, EventArgs e)

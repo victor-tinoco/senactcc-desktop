@@ -115,6 +115,9 @@
     <Compile Include="MenuWindow.xaml.cs">
       <DependentUpon>MenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PatrimoniosAgendamento.xaml.cs">
+      <DependentUpon>PatrimoniosAgendamento.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PatrimonioWindow.xaml.cs">
       <DependentUpon>PatrimonioWindow.xaml</DependentUpon>
     </Compile>
@@ -186,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MenuWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PatrimoniosAgendamento.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
