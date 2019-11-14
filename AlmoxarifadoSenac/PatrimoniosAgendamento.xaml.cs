@@ -40,5 +40,10 @@ namespace AlmoxarifadoSenac
         {
                 AtualizarDG();
         }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            AtualizarDG();
+        }
     }
 }

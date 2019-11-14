@@ -22,7 +22,22 @@ namespace AlmoxarifadoAPI.Controllers
             {
                 AgendamentoRepositorio repo = new AgendamentoRepositorio();
                 var agend = repo.ConsultarAgendamento(dia,horaretirada,horadevolucao, id);
-                return Ok(agend);
+                var QuantidadeDisponivel = 0;
+          
+                if(agend.Count> 0)
+                {
+                    QuantidadeDisponivel = agend.First().Quantidade;
+                }
+                else
+                {
+                    EquipamentoRepositorio repoEquip = new EquipamentoRepositorio();
+                  
+                    Equipamento equipamento = new Equipamento();
+                    equipamento = repoEquip.ConsultarPorId(id);
+                    QuantidadeDisponivel = equipamento.Quantidade;
+
+                }
+                return Ok(QuantidadeDisponivel);
             }
             catch (Exception ex)
             {

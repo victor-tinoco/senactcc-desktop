@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:AlmoxarifadoSenac"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="AlmoxarifadoSenac.PatrimoniosAgendamento"
         mc:Ignorable="d"
-        Title="PatrimoniosAgendamento" Height="450" Width="380.717">
+        Title="PatrimoniosAgendamento" Height="450" Width="380.717" ContentRendered="Window_ContentRendered">
     <Grid>
 
         <Label Content="Patrimônio do Agendamento" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" 
