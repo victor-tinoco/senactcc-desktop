@@ -68,55 +68,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return agendamentos;
         }
-        public List<Agendamento> PesquisarAgendamento(string filtro, DateTime filtroinicio, DateTime filtrofim)
-        {
-            List<Agendamento> agendamento;
-            using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
-            {
-                string script =
-
-            "select  " +
-            "nm_usuario NomeUsuario," +
-            "nm_equipamento NomeEquipamento," +
-            "nm_categoria Categoria," +
-            "dthr_dia Dia," +
-            "dthr_retirada DataHoraRetirada," +
-            "dthr_devolucao  DataHoraDevolucao," +
-            "ds_devolucao StatusDevolucao," +
-            "count(nmr_patrimonio)  Quantidade " +
-            "from Equipamento " +
-            "inner join " +
-            "Patrimonio on Equipamento.id_equipamento = Patrimonio.id_equipamento " +
-            "inner join " +
-            "Categoria on Equipamento.id_equipamento = Categoria.id_categoria " +
-            "left join " +
-            "PatrimonioAgendado on Patrimonio.id_patrimonio = PatrimonioAgendado.id_patrimonio " +
-            "left join " +
-            "Agendamento on PatrimonioAgendado.id_agendamento = Agendamento.id_agendamento " +
-            "left join " +
-            "StatusDevolucao on  Agendamento.id_status_devolucao = StatusDevolucao.id_status_devolucao " +
-            "left join " +
-            "Usuario on Agendamento.id_usuario = Usuario.id_usuario " +
-            "where " +
-            "(nm_equipamento like '%' + @FILTRO + '%' " +
-            "OR  nmr_patrimonio like '%' + @FILTRO + '%') " +
-            "AND dthr_dia BETWEEN  @FILTROINICIO   AND   @FILTROFIM  " +
-            "group by " +
-            "nm_equipamento," +
-            "ds_equipamento," +
-            "nm_categoria," +
-            "Equipamento.fl_status," +
-            "dthr_dia," +
-            "dthr_devolucao," +
-            "ds_devolucao," +
-            "dthr_retirada," +
-            "nm_usuario";
-
-                agendamento = conn.Query<Agendamento>(script, new { @FILTRO = filtro, @FILTROINICIO = filtroinicio, @FILTROFIM = filtrofim }).ToList();
-            }
-            return agendamento;
-        }
-
+       
         public List<Agendamento> PesquisarAgendamento2(string filtro, DateTime filtroinicio, DateTime filtrofim)
         {
             List<Agendamento> agendamentos;
@@ -125,6 +77,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 string script =
 
             "select  " +
+            "agendamento.id_agendamento Id," +
             "id_usuario IdUsuario," +
             "Equipamento.id_equipamento IdEquipamento," +
             "dt_agendamento DataAgendamento," +
@@ -160,7 +113,8 @@ namespace AlmoxarifadoSenacLib.Repositorios
             "dt_agendamento," +
             "Equipamento.id_equipamento," +
             "id_Usuario_alteracao," +
-            "dt_alteracao ";
+            "dt_alteracao," +
+            "agendamento.id_agendamento ";
 
                 agendamentos = conn.Query<Agendamento>(script, new { @FILTRO = filtro, @FILTROINICIO = filtroinicio.Date, @FILTROFIM = filtrofim.Date.AddDays(1).AddSeconds(-1) }).ToList();
 
@@ -328,19 +282,19 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return agendamento;
         }
-        public Agendamento ConsultarPorId(int Id)
+        public int ConsultarPorId(int Id)
         {
-            Agendamento equipamento;
+            int equipamento;
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
             {
                 string script =
-                "select id_agendamento,id_patrimonio" +
-                "from PatrimonioAgendado" +
-                "where id_agendamento = @ID";
-                equipamento = conn.QueryFirstOrDefault<Agendamento>(
+                "select id_agendamento,id_patrimonio " +
+                "from PatrimonioAgendado " +
+                "where id_agendamento = @ID ";
+                equipamento = conn.QueryFirstOrDefault<int>(
                      script, new { Id });
 
-                Repositorios.CategoriaRepositorio repo = new CategoriaRepositorio();
+
             }
             return equipamento;
         }

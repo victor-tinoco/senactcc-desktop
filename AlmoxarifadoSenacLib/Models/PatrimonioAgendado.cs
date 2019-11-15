@@ -9,6 +9,6 @@ namespace AlmoxarifadoSenacLib.Modelos
     public class PatrimonioAgendado
     {
         public Agendamento Agendamento { get; set; }
-        public Agendamento Patrimonio { get; set; }
+        public Patrimonio Patrimonio { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace AlmoxarifadoSenacLib.Modelos
         public Equipamento Equipamento { get; set; }
         public int NumeroPatrimonio { get; set; }
         public bool Ativo { get; set; }
+        public PatrimonioAgendado patrimonioagendado { get; set; }
     }
 }

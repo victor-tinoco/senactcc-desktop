@@ -64,13 +64,11 @@ namespace AlmoxarifadoSenac
 
             if (item.SelectedCells.Count > 0)
             {
-                Agendamento equip = (Agendamento)item.SelectedCells[0].Item;
-
-               AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
 
                 PatrimoniosAgendamento window = new PatrimoniosAgendamento();
 
-                window.AgendamentoSelecionado = equip;
+                window.AgendamentoSelecionado = agendamento;
 
                 window.ShowDialog();
 

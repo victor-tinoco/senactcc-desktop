@@ -57,8 +57,6 @@ namespace AlmoxarifadoSenac
             {
                 Equipamento equip = (Equipamento)item.SelectedCells[0].Item;
 
-                EquipamentoRepositorio repos = new EquipamentoRepositorio();
-
                 PatrimonioWindow window = new PatrimonioWindow();
 
                 window.EquipamentoSelecionado = equip;

@@ -21,11 +21,11 @@ namespace AlmoxarifadoSenac
     /// </summary>
     public partial class PatrimoniosAgendamento : Window
     {
-        public Agendamento AgendamentoSelecionado { get; set; }
         public PatrimoniosAgendamento()
         {
             InitializeComponent();
         }
+        public Agendamento AgendamentoSelecionado { get; set; }
         private void AtualizarDG()
         {
             PatrimonioRepositorio repo = new PatrimonioRepositorio();
