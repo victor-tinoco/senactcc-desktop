@@ -19,7 +19,7 @@ namespace AlmoxarifadoAPI.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        private TokenGerado createToken(string username)
+        private TokenGerado createToken(string username, int id)
         {
             //Data do Token
             DateTime issuedAt = DateTime.UtcNow;
@@ -32,7 +32,8 @@ namespace AlmoxarifadoAPI.Controllers
             //cria a identidade do usuário que será concedido acesso
             ClaimsIdentity claimsIdentity = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, username.ToUpper())
+                new Claim(ClaimTypes.Name, username.ToUpper()),
+                new Claim("Id", id.ToString())
             });
 
             const string sec = "401b09eab3c013d4ca54922bb802beca108fd53181992b70a75ff2015d8bf37274290f90fb313759f1afbd03f44453b954555b7a0812e1081c39b740293f765eae731f5a65ed1";
@@ -67,7 +68,7 @@ namespace AlmoxarifadoAPI.Controllers
             }
             if (loginvalido == true)
             {
-                TokenGerado token = createToken(login.Usuario);
+                TokenGerado token = createToken(login.Usuario, usuario.Id);
                 return Ok(token);
             }
             else

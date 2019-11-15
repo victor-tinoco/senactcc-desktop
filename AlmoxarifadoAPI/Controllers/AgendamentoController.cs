@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -66,6 +67,14 @@ namespace AlmoxarifadoAPI.Controllers
         // POST: api/Agendamento
         public IHttpActionResult Post([FromBody]Agendamento agendamento )
         {
+            var Id = "";
+            var identity = User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                Id = claims.First(x => x.Issuer == "Id").Value;
+
+            }
             try
             {
                 AgendamentoRepositorio Repo = new AgendamentoRepositorio();
