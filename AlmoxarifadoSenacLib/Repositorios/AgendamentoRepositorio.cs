@@ -173,7 +173,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
               "dthr_devolucao DataHoraDevolucao , " +
               " dthr_dia Dia, " +
               "((select count(id_patrimonio) from Patrimonio join equipamento on patrimonio.id_equipamento = equipamento.id_equipamento where equipamento.id_equipamento = @IDEQUIPE and patrimonio.fl_status = 1) - " +
-              "(select count(PatrimonioAgendado.id_agendamento) from PatrimonioAgendado join Agendamento on PatrimonioAgendado.id_agendamento = Agendamento.id_agendamento where dthr_dia = @DIA and dthr_retirada = @HORARETIRADA and dthr_devolucao = @HORADEVOLUCAO )) Quantidade " +
+              "(select count(PatrimonioAgendado.id_agendamento) from PatrimonioAgendado join Agendamento on PatrimonioAgendado.id_agendamento = Agendamento.id_agendamento where dthr_dia = @DIA and ((dthr_retirada between @HORARETIRADA and @HORADEVOLUCAO) or (dthr_devolucao between @HORARETIRADA and @HORADEVOLUCAO)))) Quantidade " +
               "FROM Agendamento " +
               "left join " +
               "PatrimonioAgendado on Agendamento.id_agendamento = PatrimonioAgendado.id_agendamento " +
@@ -183,8 +183,8 @@ namespace AlmoxarifadoSenacLib.Repositorios
               "Equipamento on Patrimonio.id_equipamento = Equipamento.id_equipamento " +
               "WHERE Equipamento.id_equipamento = @IDEQUIPE " +
               "and(dthr_dia = @DIA) " +
-              "and(dthr_retirada = @HORARETIRADA) " +
-              "and(dthr_devolucao = @HORADEVOLUCAO)" +
+              "and((dthr_retirada between @HORARETIRADA and @HORADEVOLUCAO) " +
+              "or(dthr_devolucao between @HORARETIRADA and @HORADEVOLUCAO))" +
               "GROUP BY " +
               "Equipamento.id_equipamento, " +
               "dthr_retirada, " +
@@ -194,7 +194,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 agendamento = coon.Query<Agendamento>(
                      script, new { @IDEQUIPE = idEquip, @DIA = dia, @HORARETIRADA = horaretirada,@HORADEVOLUCAO = horadevolucao }).ToList();
             }
-            return agendamento;
+                return agendamento;
         }
         public void InserirAgendamento(Agendamento agendamento)
         {
