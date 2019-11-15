@@ -36,6 +36,12 @@
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Verificar Patrimonios" Click="VerificarPatrimonio_Click"/>
+               
+                    <MenuItem Header="Alterar Status para: Atrasado " Click="AlterarStatusParaAtrasado_Click"/>
+                
+                    <MenuItem Header="Alterar Status para: Devolvido " Click="alterarStatusParaDevolvido_Click"/>
+                    
+                    <MenuItem Header="Alterar Status para: Cancelado " Click="alterarStatusParaCancelado_Click"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
