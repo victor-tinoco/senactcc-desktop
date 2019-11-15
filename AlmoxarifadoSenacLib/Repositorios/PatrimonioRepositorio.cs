@@ -11,6 +11,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
 {
     public class PatrimonioRepositorio
     {
+       
         public List<Patrimonio> PesquisarTodosPatrimonio()
         {
             List<Patrimonio> patrimonios;
@@ -53,14 +54,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return patrimonios;
         }
-        public void excluir(int id)
-        {
-            using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
-            {
-                string script = "Delete patrimonio WHERE id_patrimonio = @ID";
-                conn.Execute(script, new { @ID = id });
-            }
-        }
+   
         public void InserirPatrimonio(Patrimonio patrimonio)
         {
             foreach (var patr in PesquisarTodosPatrimonio())
@@ -103,27 +97,26 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 });
             }
         }
-        public List<PatrimonioAgendado> PesquisarPatrimonioPorAgendamento(string filtro, int id)
+        public List<Patrimonio> PesquisarPatrimonioPorAgendamento(string filtro, int id)
         {
-            List<PatrimonioAgendado> patrimonios;
+            List<Patrimonio> patrimonios;
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
             {
                 string script =
-                   "select patrimonio.id_patrimonio Id, nmr_patrimonio NumeroPatrimonio,PatrimonioAgendado.id_agendamento IdAgendamento, patrimonio.fl_status Ativo " +
+                   "select  nmr_patrimonio NumeroPatrimonio " +
                    "from Patrimonio " +
                    "join PatrimonioAgendado on Patrimonio.id_patrimonio = PatrimonioAgendado.id_patrimonio "+
                    "where PatrimonioAgendado.id_agendamento = @ID "+
                    "AND nmr_patrimonio like '%'+ @FILTRO + '%'";
 
-                patrimonios = conn.Query<PatrimonioAgendado>(script, new { @FILTRO = filtro, @ID = id }).ToList();
+                patrimonios = conn.Query<Patrimonio>(script, new { @FILTRO = filtro, @ID = id }).ToList();
 
-                foreach (var patrimonio in patrimonios)
-                {
-                    AgendamentoRepositorio repo = new AgendamentoRepositorio();
-                   patrimonio.Agendamento = repo.ConsultarPorId(patrimonio.Agendamento.Id);
-                }
+             
             }
+
             return patrimonios;
         }
     }
 }
+    
+
