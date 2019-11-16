@@ -75,6 +75,7 @@ namespace AlmoxarifadoAPI.Controllers
                 Id = claims.First(x => x.Issuer == "Id").Value;
 
             }
+            agendamento.IdUsuario = Convert.ToInt32(Id);
             try
             {
                 AgendamentoRepositorio Repo = new AgendamentoRepositorio();
