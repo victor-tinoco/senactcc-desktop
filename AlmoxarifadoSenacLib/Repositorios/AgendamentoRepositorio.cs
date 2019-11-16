@@ -1,4 +1,5 @@
-﻿using AlmoxarifadoSenacLib.Modelos;
+﻿
+using AlmoxarifadoSenacLib.Modelos;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -136,7 +137,8 @@ namespace AlmoxarifadoSenacLib.Repositorios
         {
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
             {
-                string script = "Delete Agendamento WHERE id_agendamento = @ID";
+                string script = "Delete PatrimonioAgendado WHERE id_agendamento = @ID " +
+                    "Delete Agendamento WHERE id_agendamento = @ID ";
                 conn.Execute(script, new { @ID = id });
             }
         }
@@ -185,6 +187,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
               "and(dthr_dia = @DIA) " +
               "and(dthr_retirada = @HORARETIRADA) " +
               "and(dthr_devolucao = @HORADEVOLUCAO)" +
+              "and(s)" +
               "GROUP BY " +
               "Equipamento.id_equipamento, " +
               "dthr_retirada, " +
