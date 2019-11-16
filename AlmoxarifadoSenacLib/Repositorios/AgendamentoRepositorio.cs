@@ -140,7 +140,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 conn.Execute(script, new { @ID = id });
             }
         }
-        public void Alterar(Agendamento agendamento)
+        public void Alterar(int idDevolucao,int IDusuarioAlteracao,int idAgendamento)
         {
             using (SqlConnection coon = new SqlConnection(Conexao.ConsultarConexao()))
             {
@@ -150,11 +150,10 @@ namespace AlmoxarifadoSenacLib.Repositorios
                     " WHERE id_agendamento = @ID ";
                 coon.Execute(script, new
                 {
-                    @IDUSER = agendamento.Usuario.Id,
-                    @DEVOLUCAO = agendamento.StatusDevolucao,
-                    @ALTERACAO = agendamento.DataAlteracao,
-                    @USUARIOALTERACAO = agendamento.UsuarioAlteracao.Id,
-                    @ID = agendamento.Id
+                    @DEVOLUCAO = idDevolucao,
+                    @ALTERACAO = DateTime.Now,
+                    @USUARIOALTERACAO = IDusuarioAlteracao,
+                    @ID = idAgendamento
                 });
 
             }
@@ -298,5 +297,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return equipamento;
         }
+        
+
     }
 }

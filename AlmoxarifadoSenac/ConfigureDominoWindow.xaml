@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlmoxarifadoSenac"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="AlmoxarifadoSenac.ConfigureDominoWindow"
+        mc:Ignorable="d"
+        Title="ConfigureDominoWindow" Height="186.886" Width="343.852">
+    <Grid>
+        <Label Content="Configurações" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+            FontSize="25" FontWeight="Bold"/>
+
+        <TextBox x:Name="txDominio"
+            materialDesign:HintAssist.Hint="Dominio" MaxLength="100"
+            FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,58,0,0" Width="318"  />
+        <Button x:Name="btnSalvar"
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            HorizontalAlignment="Left" VerticalAlignment="Top"
+            Margin="239,113,0,0" Content="SALVAR" Width="87" Click="btnSalvar_Click" />
+    </Grid>
+</Window>

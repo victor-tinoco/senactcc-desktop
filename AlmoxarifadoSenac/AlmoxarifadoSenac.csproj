@@ -97,6 +97,9 @@
     <Compile Include="CategoriasWindow.xaml.cs">
       <DependentUpon>CategoriasWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ConfigureDominoWindow.xaml.cs">
+      <DependentUpon>ConfigureDominoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ConfigWindow.xaml.cs">
       <DependentUpon>ConfigWindow.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="CategoriasWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ConfigureDominoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

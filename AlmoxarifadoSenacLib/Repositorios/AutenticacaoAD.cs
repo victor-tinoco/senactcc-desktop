@@ -21,7 +21,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
         {
             public Credentials Credentials;
             public string Domain;
-
+            public bool verificar;
 
 
             public Domain_Authentication(string Username, string Password, string SDomain)
@@ -29,15 +29,26 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 Credentials.Username = Username;
                 Credentials.Password = Password;
                 Domain = SDomain;
+             
             }
             public bool IsValid()
             {
-                using (PrincipalContext pc = new PrincipalContext(ContextType.Domain, Domain))
+                try
                 {
-                    // validate the credentials
-                    return pc.ValidateCredentials(Credentials.Username, Credentials.Password);
+                    using (
+                        PrincipalContext pc = new PrincipalContext(ContextType.Domain, Domain))
+                    {
+                        // validate the credentials
+                        return pc.ValidateCredentials(Credentials.Username, Credentials.Password);
+
+                    }
+                }
+                catch(Exception e)
+                {
+                    return false;
                 }
             }
+           
         }
     }
 }

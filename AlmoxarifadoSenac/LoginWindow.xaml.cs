@@ -34,10 +34,14 @@ namespace AlmoxarifadoSenac
             UsuarioRepositorio repo = new UsuarioRepositorio();
             Usuario usuario;
             usuario = repo.ConsultarPorEmail(txtLogin.Text);
-            Domain_Authentication domain = new Domain_Authentication(txtLogin.Text, txtSenha.Password, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
 
+            Domain_Authentication domain = new Domain_Authentication(txtLogin.Text, txtSenha.Password, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
+            if(domain.IsValid()== true)
+            {
+               
             if (usuario != null && domain.IsValid())
             {
+           
                 if (usuario.TipoUsuario == 3)
                 {
                     MessageBox.Show("Você não tem permissões de Administrador/Subadministrador.");
@@ -51,15 +55,44 @@ namespace AlmoxarifadoSenac
 
                     Close();
                 }
-            }
+                }
+               
+            
+
             else
             {
                 MessageBox.Show("Usuário ou Senha inválido.");
             }
         }
+            else
+            {
+                MessageBox.Show("Não foi possível conectar ao Dominio. " +
+                   "Verifique se as configurações estão corretas. ",
+                   "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBoxResult resultado = MessageBox.Show("Deseja configurar o Dominio agora?",
+                    "Configuração", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (resultado == MessageBoxResult.Yes)
+                {
+                    ConfigureDominoWindow janela = new ConfigureDominoWindow();
+                    janela.ShowDialog();
+
+                    if (domain.IsValid() == false)
+                    {
+                        Close();
+                    }
+                }
+                else
+                {
+                    Close();
+                }
+            }
+    }
 
         private void Window_ContentRendered(object sender, EventArgs e)
         {
+           
             if (Aplicacao.TestarConexao() == false)
             {
                 MessageBox.Show("Não foi possível conectar ao banco de dados. " +
@@ -84,6 +117,7 @@ namespace AlmoxarifadoSenac
                     Close();
                 }
             }
+            
         }
     }
 }

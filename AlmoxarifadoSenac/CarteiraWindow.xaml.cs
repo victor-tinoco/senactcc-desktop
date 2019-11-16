@@ -44,14 +44,96 @@ namespace AlmoxarifadoSenac
             AtualizarDG();
         }
 
-        private void OpcaoAlterar_Click(object sender, RoutedEventArgs e)
+        private void alterarStatusParaEmprestado_Click(object sender, RoutedEventArgs e)
         {
 
+            control.MenuItem menuItem = (control.MenuItem)sender;
+
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+                
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(1,usuario,agendamento.Id);
+
+                AtualizarDG();
+            }
         }
 
-        private void OpcaoExcluir_Click(object sender, RoutedEventArgs e)
+        private void alterarStatusParaDevolvido_Click(object sender, RoutedEventArgs e)
         {
+            control.MenuItem menuItem = (control.MenuItem)sender;
 
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(3, usuario, agendamento.Id);
+
+                AtualizarDG();
+            }
+        }
+        private void alterarStatusParaAtrasado_Click(object sender, RoutedEventArgs e)
+        {
+            control.MenuItem menuItem = (control.MenuItem)sender;
+
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(4, usuario, agendamento.Id);
+
+                AtualizarDG();
+            }
+
+        }
+        private void ExcluirAgendamento_Click(object sender, RoutedEventArgs e)
+        {
+            control.MenuItem menuItem = (control.MenuItem)sender;
+
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+               
+               
+              
+               
+                    MessageBoxResult resposta;
+                    resposta = System.Windows.MessageBox.Show("Deseja realmente excluir este Agendamento?",
+                        "Excluir", MessageBoxButton.YesNo,
+                        MessageBoxImage.Question);
+
+                    if (resposta == MessageBoxResult.Yes)
+                    {
+                        repos.Excluir(agendamento.Id);
+                        AtualizarDG();
+                    }
+                    else
+                        e.Handled = true;
+                
+            }
 
         }
         private void VerificarPatrimonio_Click(object sender, RoutedEventArgs e)
