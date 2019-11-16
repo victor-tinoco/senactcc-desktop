@@ -67,15 +67,16 @@ namespace AlmoxarifadoAPI.Controllers
         // POST: api/Agendamento
         public IHttpActionResult Post([FromBody]Agendamento agendamento )
         {
-            var Id = "";
-            var identity = User.Identity as ClaimsIdentity;
-            if (identity != null)
-            {
-                IEnumerable<Claim> claims = identity.Claims;
-                Id = claims.First(x => x.Issuer == "Id").Value;
+            //var Id = "";
+            //var identity = User.Identity as ClaimsIdentity;
+            //if (identity != null)
+            //{
+            //    IEnumerable<Claim> claims = identity.Claims;
+            //    Id = claims.First(x => x.Issuer == "Id").Value;
 
-            }
-            agendamento.IdUsuario = Convert.ToInt32(Id);
+            //}
+            //agendamento.IdUsuario = Convert.ToInt32(Id);
+            agendamento.IdUsuario = 4;
             try
             {
                 AgendamentoRepositorio Repo = new AgendamentoRepositorio();

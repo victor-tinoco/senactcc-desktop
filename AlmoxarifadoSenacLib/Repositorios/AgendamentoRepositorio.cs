@@ -216,7 +216,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                     "where equipamento.id_equipamento =  @IDEQUIPE " +
                     "and dthr_dia = @dia " +
                     "and dthr_retirada = @retirada " +
-                    "and dthr_devolucao = @devolucao " ; 
+                    "and dthr_devolucao = @devolucao) ";
                 coon.Execute(script, new
                 {
                     @IDUSER = agendamento.IdUsuario,
