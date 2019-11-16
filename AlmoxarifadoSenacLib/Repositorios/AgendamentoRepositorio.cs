@@ -202,7 +202,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             {
 
                 string script = "insert into Agendamento(id_usuario, dt_agendamento, dthr_dia, dthr_devolucao, dthr_retirada, id_status_devolucao, fl_status) " +
-                    "values(@IDUSER, @DATAAGORA, @dia,@HORADEVOLUCAO,@HORARETIRADA,1, 1) " +
+                    "values(@IDUSER, @DATAAGORA, @dia,@HORADEVOLUCAO,@HORARETIRADA, 2, 1) " +
                     "insert into PatrimonioAgendado(id_patrimonio, id_agendamento) " +
                     "select top(@quantidade) id_patrimonio, SCOPE_IDENTITY() " +
                     "from Patrimonio p " +
