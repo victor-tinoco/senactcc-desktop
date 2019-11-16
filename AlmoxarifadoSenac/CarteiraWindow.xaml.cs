@@ -47,16 +47,61 @@ namespace AlmoxarifadoSenac
         private void alterarStatusParaEmprestado_Click(object sender, RoutedEventArgs e)
         {
 
+            control.MenuItem menuItem = (control.MenuItem)sender;
+
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+                
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(1,usuario,agendamento.Id);
+
+                AtualizarDG();
+            }
         }
 
         private void alterarStatusParaDevolvido_Click(object sender, RoutedEventArgs e)
         {
+            control.MenuItem menuItem = (control.MenuItem)sender;
 
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
 
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(3, usuario, agendamento.Id);
+
+                AtualizarDG();
+            }
         }
         private void alterarStatusParaAtrasado_Click(object sender, RoutedEventArgs e)
         {
+            control.MenuItem menuItem = (control.MenuItem)sender;
 
+            control.ContextMenu contextMenu = (control.ContextMenu)menuItem.Parent;
+
+            control.DataGrid item = (control.DataGrid)contextMenu.PlacementTarget;
+
+            if (item.SelectedCells.Count > 0)
+            {
+
+                Agendamento agendamento = (Agendamento)item.SelectedCells[0].Item;
+                AgendamentoRepositorio repos = new AgendamentoRepositorio();
+                int usuario = agendamento.Usuario.Id;
+                repos.Alterar(4, usuario, agendamento.Id);
+
+                AtualizarDG();
+            }
 
         }
         private void ExcluirAgendamento_Click(object sender, RoutedEventArgs e)

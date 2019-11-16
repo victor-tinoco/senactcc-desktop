@@ -36,7 +36,7 @@ namespace AlmoxarifadoSenac
             usuario = repo.ConsultarPorEmail(txtLogin.Text);
             Domain_Authentication domain = new Domain_Authentication(txtLogin.Text, txtSenha.Password, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
 
-            if (usuario != null && domain.IsValid() )
+            if (usuario != null) //&& domain.IsValid()
             {
                 if (usuario.TipoUsuario == 3)
                 {
