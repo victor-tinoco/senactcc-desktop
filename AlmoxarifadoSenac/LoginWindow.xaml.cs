@@ -36,39 +36,40 @@ namespace AlmoxarifadoSenac
             usuario = repo.ConsultarPorEmail(txtLogin.Text);
 
             Domain_Authentication domain = new Domain_Authentication(txtLogin.Text, txtSenha.Password, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
-            if(domain.IsValid()== true)
+            try
             {
-               
-            if (usuario != null && domain.IsValid())
-            {
-           
-                if (usuario.TipoUsuario == 3)
+
+                if (usuario != null && domain.IsValid())
                 {
-                    MessageBox.Show("Você não tem permissões de Administrador/Subadministrador.");
+
+                    if (usuario.TipoUsuario == 3)
+                    {
+                        MessageBox.Show("Você não tem permissões de Administrador/Subadministrador.");
+                    }
+                    else
+                    {
+                        Aplicacao.UsuarioLogado = usuario;
+
+                        MenuWindow janela = new MenuWindow();
+                        janela.Show();
+
+                        Close();
+                    }
                 }
+
+
+
                 else
                 {
-                    Aplicacao.UsuarioLogado = usuario;
-
-                    MenuWindow janela = new MenuWindow();
-                    janela.Show();
-
-                    Close();
+                    MessageBox.Show("Usuário ou Senha inválido.");
                 }
-                }
-               
-            
-
-            else
-            {
-                MessageBox.Show("Usuário ou Senha inválido.");
             }
-        }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Não foi possível conectar ao Dominio. " +
-                   "Verifique se as configurações estão corretas. ",
-                   "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBox.Show(ex.Message,"Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+               
 
                 MessageBoxResult resultado = MessageBox.Show("Deseja configurar o Dominio agora?",
                     "Configuração", MessageBoxButton.YesNo, MessageBoxImage.Question);
@@ -88,36 +89,37 @@ namespace AlmoxarifadoSenac
                     Close();
                 }
             }
-    }
+        }
+    
 
-        private void Window_ContentRendered(object sender, EventArgs e)
+    private void Window_ContentRendered(object sender, EventArgs e)
+    {
+
+        if (Aplicacao.TestarConexao() == false)
         {
-           
-            if (Aplicacao.TestarConexao() == false)
+            MessageBox.Show("Não foi possível conectar ao banco de dados. " +
+                "Verifique se as configurações estão corretas. ",
+                "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+
+            MessageBoxResult resultado = MessageBox.Show("Deseja configurar o banco de dados agora?",
+                "Configuração", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (resultado == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Não foi possível conectar ao banco de dados. " +
-                    "Verifique se as configurações estão corretas. ",
-                    "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                ConfigWindow janela = new ConfigWindow();
+                janela.ShowDialog();
 
-                MessageBoxResult resultado = MessageBox.Show("Deseja configurar o banco de dados agora?",
-                    "Configuração", MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (resultado == MessageBoxResult.Yes)
-                {
-                    ConfigWindow janela = new ConfigWindow();
-                    janela.ShowDialog();
-
-                    if (Aplicacao.TestarConexao() == false)
-                    {
-                        Close();
-                    }
-                }
-                else
+                if (Aplicacao.TestarConexao() == false)
                 {
                     Close();
                 }
             }
-            
+            else
+            {
+                Close();
+            }
         }
+
     }
+}
 }

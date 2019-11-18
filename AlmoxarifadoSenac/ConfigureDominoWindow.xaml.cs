@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Configuration;
 
 namespace AlmoxarifadoSenac
 {
@@ -26,7 +27,12 @@ namespace AlmoxarifadoSenac
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
+            System.Configuration.Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
+            config.AppSettings.Settings["Dominio"].Value = txtDominio.Text;
+            config.Save(ConfigurationSaveMode.Modified);
+            MessageBox.Show("Alterações efetuadas com sucesso.");
+            Close();
         }
     }
 }
