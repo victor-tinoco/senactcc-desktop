@@ -1,0 +1,76 @@
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.active-orange{
+    border-bottom: 1px solid #EE9A00;
+    outline: none;
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+} 
+
+@media only screen and (min-width: 576px) {
+    body {
+        clear: both;  
+        background: url(../IMG/imgbackground.jpg) center center fixed;
+        background-size:cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        -khtml-background-size: cover;
+        -moz-background-size: cover;
+        min-height:100% !important;
+    }
+
+    .instructions {
+        font-size: 14px !important;
+    }
+
+    .confirm-button {
+        margin-top: 8px 0 0;
+    }
+}
+
+.site-footer {
+background: rgba(0,0,0,0.4);
+color: #dbdbdb;
+height: 25px;
+position: fixed;
+width: 100%;
+bottom: 0;
+text-align: left;
+padding-right: 16px;  
+font-size: 12px
+}
+
+
+/* correções */
+.instructions {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.inst-link, .inst-link:hover, .inst-link:active, .inst-link:focus {
+    color: #005593;
+}
+
+.confirm-button, .confirm-button:hover, .confirm-button:active, .confirm-button:focus {
+    background-color: #005593;
+    color: white;
+    font-size: 18px;
+    font-weight: lighter;
+    outline: none;
+    text-decoration: none;
+}
+
+.confirm-button:hover{
+    cursor: pointer;
+}
+
+.confirm-button:hover, .confirm-button:active, .confirm-button:focus {
+    background-color: #004272
+}
