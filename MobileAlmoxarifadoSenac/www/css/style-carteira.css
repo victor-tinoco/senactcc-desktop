@@ -1,0 +1,265 @@
+body {
+    background-color: #eee;
+}
+
+
+/* titulo do header */
+.title-header-wallet {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 680;
+    text-align: center;
+    margin: 13px 0px
+}
+
+/* icone de voltar do header */
+.back-icon {
+    font-size: 20px;
+    color: #fff;
+    padding-left: 5px
+}
+
+/* titulos localizados ao lado dos icones e em cima dos campos inputs/buttons */
+.btn-titles {
+    font-weight: normal;
+}
+
+/* cor e tamanho de letras que tem de ficar azulzinhas */
+.letters {
+    color: #005593;
+    font-size: 16px;
+}
+
+/* os titulos dos ícones, para espaçar o ícone do título (estava com espaço para separar) */
+.icon-titles {
+    margin-right: 6px;
+    margin-left: 2px;
+}
+
+/* estilo da carteira */
+.wallet {
+    margin: 10px 0;
+}
+
+/* título da tabela da carteira */
+.wallet-title {
+	color: #005593;
+	font-size: 16px;
+}
+
+table tbody th, td {
+	color: #7c7c7c;
+}
+
+@media (max-width:620px){
+  .wallet-title {
+    font-size: 16px
+  }
+}
+
+/* tamanho da letra da tabela */
+.table {
+    font-size: 16px;
+}
+
+
+/* retirar negrito da primeira coluna da tabela (que vem por padrão ) */
+tbody th {
+    font-weight: normal;
+}
+
+/* CSS DA LINHA DE PESQUISA E FILTRO */
+.style-search,.style-search:hover,.style-search:focus, .style-search-clear{
+    background-color: #005593;
+    color:white;
+    border: none !important;
+}
+
+/* CSS DE COR CLARA  */
+.style-color-light{
+    background-color: white;
+    color: #7c7c7c;
+    border: none;
+    box-shadow: none !important;
+}
+
+/* CSS DO ICONE DE PESQUISA */
+.rotate{
+  transform: rotate(80deg)
+}
+
+/* Deixar o cursor do mouse com a mãozinha */
+.pointer {
+  cursor: pointer;
+}
+
+.btn-search {
+  border-radius: 0 0 0 0;
+}
+
+/* Tirar padrões de actives dos botões */
+.btn-search:hover,.btn-search:active,.btn-search:focus{
+  color: white;
+  background-color: #014d83;
+  outline: none !important;
+  box-shadow: none;
+  border: none !important;
+}
+
+.btn-clear {
+  border-radius: 0 0 0 0;
+}
+
+.btn-clear:hover,.btn-clear:active,.btn-clear:focus, .search-bar-wallet:hover, .search-bar-wallet:active, .search-bar-wallet:focus{
+  color: #7c7c7c;
+  background-color: white;
+  outline: none !important;
+  box-shadow: none;
+  border: none !important;
+}
+
+/* CSS PARA DESATIVAR FUNÇÃO SHOW */
+div.meuDropDown.show{
+    display: table-cell!important;
+}
+
+
+
+.colordate{
+  color: white;
+  background-color:rgb(0, 85, 148);
+  padding: 6px ;
+  width:  100%;
+}
+
+
+/* MOBILE SITE */
+@media only screen and (max-width: 768px) {
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  body {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .header-navbar {
+    background-color: #005593;
+    color: white;
+  }
+  .header-navbar #navbar-content {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+
+  #navbar-content a:hover, #navbar-content a:active, #navbar-content a:focus {
+    text-decoration: none;
+    color: rgb(219, 219, 219);
+    outline: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .header-navbar #navbar-content #return {
+      font-size: 16px;
+    }
+  }
+  
+  .header-navbar #navbar-content #navbar-title {
+    font-size: 18px;
+  }
+  
+  .search-bar-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e2e2e2;
+    color: #005593;
+  }
+  
+  .search-bar-content .btn-with-icon {
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 18px;
+    margin: 0;
+    color: #005593;
+    outline: 0
+  }
+
+  .search-bar-content .search-input {
+    border-radius: 0;
+    border: none;
+    background-color: transparent;
+    color: #005593;
+    font-size: 16px;
+  }
+  
+  .equipment-list {
+    list-style-type: none;
+    padding: 8px 12px;
+  }
+  .equipment-list .equipment-list-item {
+    border-bottom: 1px solid #666;
+    margin-bottom: 5px;
+  }
+  .equipment-list .equipment-list-item .equip-row {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 7px;
+  }
+  .equipment-list .equipment-list-item .equip-row .equip-name {
+    color: #333333;
+    font-size: 14px;
+    margin-top: 7px;
+  }
+  .equipment-list .equipment-list-item .equip-row .show-more {
+    color: #005593;
+    font-size: 27px;
+    border-left: 1px solid #666;
+    padding: 0 5px;
+  }
+  .equipment-list .equipment-list-item .equip-details {
+    color: #444;
+    font-size: 13px;
+    padding: 0 0 8px 10px;
+    display: none;
+  }
+
+  
+  /* Mobile filter css*/
+
+  .drop-filter {
+      background-color: #e2e2e2;
+      border-radius: 0;
+      color: #005593;
+      border: #005593 1px solid;
+  }
+
+  .drop-filter hr {
+      border-color: #005593;
+  }
+
+  .drop-filter a {
+      color:#005593;
+      font-size: 16px
+  }
+
+  .drop-filter a:active,.drop-filter a:focus,.drop-filter a:hover {
+      background-color: #005593;
+      color: #e2e2e2;
+      text-decoration: none
+  }
+
+  .dropfilter-header {
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold
+  }
+}

@@ -1,0 +1,92 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+textarea:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+.header {
+    background-color: #005594;
+    padding: 0;
+}
+
+.title-header {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 680;
+    text-transform: uppercase;
+    min-width: 186px;
+}
+
+.dropdProfile {
+    height: 56px;
+    width: 55px;
+    background-color: #eeeeee;
+    border: none;
+}
+
+.dropdProfile:hover, .dropdProfile:active, .dropdProfile:focus, #filter-btn.hover, #filter-btn:active, #filter-btn:focus {
+    outline: none;
+    cursor: pointer;
+}
+
+.circleProfile {
+    height: 40px;
+    width: 40px;
+    background-color: #005594;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    font-size: 20px
+}
+
+.menu-drop {
+    border-radius: 0;
+    margin: 0;
+    background-color: #eeeeee;
+    color: #7c7c7c;
+    width: 250px;
+    border: none;
+    box-shadow: none;
+}
+
+.menu-drop a {
+    color: #005594;
+    font-size: 14px;
+    font-weight: 500
+}
+
+.title-drop {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.menu-drop-mobile {
+    border-radius: 0;
+    background-color: #003a66;
+    color: #7c7c7c;
+    border: none;
+    box-shadow: none;
+}
+
+.menu-drop-mobile a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px;
+    background-color: #003a66;
+}
+
+.menu-drop-mobile a:hover, .menu-drop-mobile a:active, .menu-drop-mobile a:focus {
+    color: #005594;
+    background-color: #e2e2e2;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px;
+    text-decoration: none;
+}
