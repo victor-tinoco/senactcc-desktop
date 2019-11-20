@@ -1,4 +1,4 @@
-var urlSite = 'file:///C:/Users/gabriel.yluz/Desktop/projeto%20almo/senactcc-desktop/MobileAlmoxarifadoSenac/www/';
+var urlSite = '/';
 var api = ApiLogin();
 
 $(document).ready(function(){

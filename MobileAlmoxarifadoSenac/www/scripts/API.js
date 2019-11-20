@@ -86,7 +86,7 @@ function ApiLogin() {
 
     api.FazerLogin = function(dados, acaoSucesso, acaoCarregando, acaoCarregado, acaoErro) {
         $.ajax({
-            url: urlBaseApiLogin +'Login',
+            url: urlBaseApiLogin ,
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(dados),
