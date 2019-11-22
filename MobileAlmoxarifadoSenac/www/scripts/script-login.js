@@ -15,7 +15,7 @@ $('#formLogin').submit(function (form)
 
     api.FazerLogin(dados, function(dados){
         Cookies.set('site_autenticado', dados.Token, {expires: 1})
-        window.location.href = urlSite + 'equipamentos.html';
+        window.location.href = urlSite + 'www/equipamentos.html';
     }, function(dados){
         $('.confirm-button').attr('disabled','disabled');
         $('.confirm-button').val('Carregando...');

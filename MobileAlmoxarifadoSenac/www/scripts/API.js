@@ -22,6 +22,7 @@ function ApiCategoria() {
 function ApiEquipamento() {
     var api = new Object;
 
+    
     api.Listar = function (filtro, categoria, iniciopag, fimpag, acaoSucesso, acaoErro) {
         $.ajax({
             url: urlBaseApiEquipamento + "?filtro=" + filtro + "&categoria=" + categoria + "&iniciopag=" + iniciopag + "&fimpag=" + fimpag,

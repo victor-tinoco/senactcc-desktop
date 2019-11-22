@@ -3,7 +3,9 @@
 $(document).ready(function () {
     UpdateContent();
     ListCategories();
+    
 });
+
 
 function ListCategories() {
     api = ApiCategoria();
@@ -78,7 +80,11 @@ function LoadEquipSuccess(data) {
     $('#equips, #equips-mobile').html(text);
     $('#equips-mobile .equip').removeAttr('data-toggle')
     $('#equips-mobile .equip').removeAttr('data-target')
-    $('#equips-mobile .equip').on('click', function () { window.location.replace("mobileAgendamento.html"); })
+    $('#equips-mobile .equip').on('click', function (e) { 
+        window.location.replace("mobileAgendamento.html");
+        const id = $(e.currentTarget).data('id');
+        Cookies.set('idEquipamento', id, {expires: 1/24})
+    })
 }
 
 function LoadEquipError(data) {
