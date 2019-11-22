@@ -49,12 +49,21 @@ namespace AlmoxarifadoAPI.Controllers
 
 
         // GET: api/Agendamento/5
-        public IHttpActionResult Get(int ID)
+        public IHttpActionResult Get()
         {
             try
             {
+                var Id = "";
+                var identity = User.Identity as ClaimsIdentity;
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    Id = claims.First(x => x.Type == "Id").Value;
+
+                }
+                var idUsuario = Convert.ToInt32(Id);
                 AgendamentoRepositorio repo = new AgendamentoRepositorio();
-                var agend = repo.PesquisarAgendamentoPorIDUser(ID);
+                var agend = repo.PesquisarAgendamentoPorIDUser(idUsuario);
                 return Ok(agend);
             }
             catch (Exception ex)
@@ -76,7 +85,6 @@ namespace AlmoxarifadoAPI.Controllers
 
             }
             agendamento.IdUsuario = Convert.ToInt32(Id);
-            //agendamento.IdUsuario = 4;
             try
             {
                 AgendamentoRepositorio Repo = new AgendamentoRepositorio();
