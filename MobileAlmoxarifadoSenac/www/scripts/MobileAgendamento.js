@@ -98,7 +98,54 @@ function ConsultDate(){
 	return diaInput;
 }
 
+function ValidateFields(){
+	var erro = '';
 
+	if (ConsultTime() == false)
+		erro += '- Selecione um período*\n'
+	
+	if ($('.select-quant option:selected').val() == 0)
+		erro += '- Selecione uma quantidade*\n'
+
+	if (ConsultDate() == false)
+		erro += '- Selecione uma data igual ou maior que o dia de hoje\n'
+
+
+	if (erro === '') {
+		erro += '- Selecione uma data'
+		return true;
+	} else {
+		window.alert('Erro:\n' + erro);
+		return false;
+	}
+}
+$('.confirm-btn').click(function(){
+	if (ValidateFields()){
+		var dados = new Object;
+		var hora = ConsultTime();
+		dados.DataAgendamento = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+		dados.Dia = $('#datepicker').datepicker('getDate');
+		dados.DataHoraRetirada = hora.Retirada;
+		dados.Quantidade = $('.select-quant option:selected').val()
+		dados.DataHoraDevolucao = hora.Devolucao;
+		dados.IdEquipamento = $('#idEquip').val();
+
+		var api = ApiAgendamento();
+		api.Incluir(dados, function(dados){
+			
+		}, function(dados){
+			$('.confirm-btn').attr('disabled', 'disabled');
+			$('.confirm-btn').text('Carregando...')
+		}, function(dados){
+			$('.confirm-btn').removeAttr('disabled', 'disabled');
+			$('.confirm-btn').text('Confirmar')
+			$('#modalequip').modal('hide');
+			setTimeout(() => { window.alert('Agendamento efetuado com sucesso.') }, 2000); 
+		}, function(dados){
+			window.alert('Ocorreu um erro.')
+		})
+	};
+})
 
 
 function FillSelect(){
