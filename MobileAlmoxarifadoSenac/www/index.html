@@ -5,7 +5,6 @@
            Personalize a política de segurança de conteúdo na marca meta abaixo, conforme necessário. Adicione 'unsafe-inline' ao default-src para habilitar o JavaScript embutido.
     Para obter mais detalhes, consulte http://go.microsoft.com/fwlink/?LinkID=617521
        -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
 
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <meta name="format-detection" content="telephone=no">
@@ -16,35 +15,34 @@
     <link rel="icon" type="imagem/png" href="/IMG/icon.png" />
 </head>
 <body>
-    <div class="app">
+     <!-- Mobile Version -->
+     <div class="d-block d-sm-none">
+        <div class="p-2">
+            <h3 style="color: rgb(59, 59, 59)">
+                Entrar
+            </h3>
 
-        <div class="d-block d-sm-none">
-            <div class="p-2">
-                <h3 style="color: rgb(59, 59, 59)">
-                    Entrar
-                </h3>
-
+            
                 <form action="formLogin" id="formLogin">
                     <div class="md-form active-orange mb-3">
                         <input class="border border-0 w-100" type="text" placeholder="E-mail" aria-label="E-mail"
                                id="Login">
-                    </div>
-                    <div class="md-form active-orange mb-3">
-                        <input class="border border-0 w-100" type="password" placeholder="Senha" aria-label="Senha"
-                               id="Senha">
-                    </div>
-                    <div class="d-flex instructions">
-                        Não tem uma conta?<br><a class="pl-1 inst-link" href="#">Entre em contato com um administrador!</a>
-                    </div>
-                    <div>
-                        <a class="instructions inst-link" href="#">Esqueci minha Senha</a>
-                    </div>
+                </div>
+                <div class="md-form active-orange mb-3">
+                    <input class="border border-0 w-100" type="password" placeholder="Senha" aria-label="Senha"
+                           id="Senha"> 
+                </div>
+                <div class="d-flex instructions">
+                    Não tem uma conta?<br><a class="pl-1 inst-link" href="#">Entre em contato com um administrador!</a>
+                </div>
+                <div>
+                    <a class="instructions inst-link" href="#">Esqueci minha Senha</a>
+                </div>
 
-                    <div class="d-flex justify-content-end">
-                        <input type="submit" value="Proximo" class=" border-0 mt-2 px-3 py-1 confirm-button">
-                    </div>
-                </form>
-            </div>
+                <div class="d-flex justify-content-end">
+                    <input type="submit" value="Proximo" class=" border-0 mt-2 px-3 py-1 confirm-button">
+                </div>
+            </form>
         </div>
     </div>
     <script type="text/javascript" src="scripts/platformOverrides.js"></script>

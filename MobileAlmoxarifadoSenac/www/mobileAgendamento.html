@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<!-- Meta tags Obrigatórias -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+		integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+	<link rel="icon" type="imagem/png" href="/IMG/icon.png" />
+	
+	<link rel="stylesheet" href="css/mobileAgendamento.css">
+	<link rel="stylesheet" href="JS/jquery-ui-1.12.1.custom/jquery-ui.css">
+	<title>Agendamento</title>
+</head>
+
+<body>
+	<div class="body-cont d-block d-md-none">
+
+		<div class="header-navbar p-4">
+			<!-- CONTEÚDO DA NAVBAR -->
+			<div id="navbar-content">
+				<a href="equipamentos.html" class="seta"><i class="fas fa-arrow-left btn-correction"></i></a>
+				<div id="navbar-title font-weight-bold">CARTEIRA DE AGENDAMENTOS</div>
+				<div></div>
+			</div>
+		</div>
+
+		<div>
+			<img class="img-tm img-mobile">
+		</div>
+		<input type="hidden" id="idEquip">
+		<div class="letra fonte">
+			<span class="fontsize-padrao2" ><b id="NomeEquip"></b> <br> </span>
+			<div class="d-flex fontsize-padrao" ><b>Descrição:</b> 
+				<div id="equipDescricao"></div>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="form-group d-flex align-items-center align-geral">
+			<!-- Datepicker as text field -->
+			<div class="letra fontsize-padrao padrao-buttons"><b>DATA</b>AGENDAMENTO: </div>
+
+			<div class="input-group date ml-3 w-100 alinha-esquerda">
+				<input type="text" class="datejs today colordate border-0 btn-correction " id="datepicker">
+			</div>
+		</div>
+
+
+		<div class=" margin-1 d-flex align-items-center align-geral">
+			<div class="letra  fontsize-padrao padrao-buttons"><b>PERIODOS</b>DISPONIVEIS: </div>
+			<div>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-manha">M</button>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-tarde">T</button>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-noite">N</button>
+			</div>
+		</div>
+
+
+		<div class="d-flex align-items-center align-geral">
+			<div class="letra fontsize-padrao padrao-buttons"><b>QUANTIDADE</b>DISPONIVEL:</div>
+			<div class="btn-group alinha-esquerda " role="group">
+				<select class="form-control  options-color btn-correction select-quant">
+				</select>
+			</div>
+		</div>
+		<div class="link-fontsize padrao-buttons align-geral my-0 d-block">Ao clicar em confirmar você concodar com os <a href="" class="padrao-buttons"><b>termos e condições de uso</b>.</a></div>
+		<button type="button" onclick="window.location.href='carteira.html';" class="border-0 rounded p-2 texto-size letra btn-correction float-right m-3 d-block"><b>CONFIRMAR </b></button>
+
+	</div>
+	</div>
+	<div class="body-cont d-none d-sm-block">
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<!-- Plugin pro Datapicker novo -->
+		<script
+			src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
+
+		<script src="scripts/datepicker.js"></script>
+
+	
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+		
+		<script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="scripts/js.cookie.min.js"></script>
+		<script src="scripts/autenticacao.js"></script>
+		<script src="scripts/API.js"></script>
+		<script src="scripts/MobileAgendamento.js"></script>
+		
+</body>
+
+</html>

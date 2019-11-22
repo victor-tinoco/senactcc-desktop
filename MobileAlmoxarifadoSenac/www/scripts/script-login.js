@@ -1,4 +1,4 @@
-var urlSite = 'file:///C:/Users/gabriel.yluz/Desktop/projeto%20almo/senactcc-desktop/MobileAlmoxarifadoSenac/www/';
+var urlSite = '/';
 var api = ApiLogin();
 
 $(document).ready(function(){
@@ -15,7 +15,7 @@ $('#formLogin').submit(function (form)
 
     api.FazerLogin(dados, function(dados){
         Cookies.set('site_autenticado', dados.Token, {expires: 1})
-        window.location.href = urlSite + 'equipamentos.html';
+        window.location.href = urlSite + 'www/equipamentos.html';
     }, function(dados){
         $('.confirm-button').attr('disabled','disabled');
         $('.confirm-button').val('Carregando...');
