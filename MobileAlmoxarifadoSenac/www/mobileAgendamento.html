@@ -42,6 +42,7 @@
 		<div>
 			<img class="img-tm img-mobile">
 		</div>
+		<input type="hidden" id="idEquip">
 		<div class="letra fonte">
 			<span class="fontsize-padrao2" ><b id="NomeEquip"></b> <br> </span>
 			<div class="d-flex fontsize-padrao" ><b>Descrição:</b> 
@@ -56,7 +57,7 @@
 			<div class="letra fontsize-padrao padrao-buttons"><b>DATA</b>AGENDAMENTO: </div>
 
 			<div class="input-group date ml-3 w-100 alinha-esquerda">
-				<input type="text" class="datejs today colordate border-0 btn-correction ">
+				<input type="text" class="datejs today colordate border-0 btn-correction " id="datepicker">
 			</div>
 		</div>
 
@@ -64,20 +65,17 @@
 		<div class=" margin-1 d-flex align-items-center align-geral">
 			<div class="letra  fontsize-padrao padrao-buttons"><b>PERIODOS</b>DISPONIVEIS: </div>
 			<div>
-				<input type="checkbox" class="btn alinha-esquerda btn-correction">M</button>
-				<input type="checkbox" class="btn alinha-esquerda btn-correction">T</button>
-				<input type="checkbox" class="btn alinha-esquerda btn-correction">N</button>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-manha">M</button>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-tarde">T</button>
+				<input type="checkbox" class="btn alinha-esquerda btn-correction" id="check-noite">N</button>
 			</div>
 		</div>
 
 
 		<div class="d-flex align-items-center align-geral">
 			<div class="letra fontsize-padrao padrao-buttons"><b>QUANTIDADE</b>DISPONIVEL:</div>
-			<div class="btn-group alinha-esquerda" role="group">
-				<select class="form-control  options-color btn-correction">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
+			<div class="btn-group alinha-esquerda " role="group">
+				<select class="form-control  options-color btn-correction select-quant">
 				</select>
 			</div>
 		</div>
