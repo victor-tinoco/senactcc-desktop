@@ -149,10 +149,12 @@ namespace AlmoxarifadoSenacLib.Repositorios
             int paginacao;
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
             {
-                string script = " select count(id_equipamento) from Equipamento  " +
+                string script = " select count(id_equipamento) from Equipamento " +
+                    "join "+
+                    "Categoria on equipamento.id_categoria = Categoria.id_categoria  " +
                     "where nm_equipamento like  '%' + @FILTRO + '%' " +
-                "and nm_categoria like  '%' + @CATEGORIA + '%' ";
-                paginacao = conn.QueryFirstOrDefault<int>(script);
+                    "and nm_categoria like  '%' + @CATEGORIA + '%' ";
+                paginacao = conn.QueryFirstOrDefault<int>(script, new { FILTRO = filtro, @CATEGORIA = categoria });
             }
             return paginacao;
 

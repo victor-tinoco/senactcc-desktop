@@ -9,10 +9,11 @@ using System.Web.Http.Cors;
 
 namespace AlmoxarifadoAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
     public class CategoriaController : ApiController
     {
-        [EnableCors(origins: "*", headers: "*", methods: "*")]
-        [Authorize]
+       
         public IHttpActionResult Get()
         {
             try
