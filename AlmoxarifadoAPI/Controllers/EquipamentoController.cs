@@ -30,13 +30,13 @@ namespace AlmoxarifadoAPI.Controllers
             }
         }
    
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string filtro,string categoria)
         {
             try
             {
 
                 EquipamentoRepositorio repo = new EquipamentoRepositorio();
-                var equip = repo.Paginacao();
+                var equip = repo.Paginacao(filtro,categoria);
                 return Ok(equip);
             }
             catch (Exception ex)
