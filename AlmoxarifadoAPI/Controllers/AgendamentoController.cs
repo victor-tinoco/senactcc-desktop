@@ -14,9 +14,11 @@ namespace AlmoxarifadoAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Authorize]
+
     public class AgendamentoController : ApiController
     {
         // GET: api/Agendamento
+
         public IHttpActionResult Get(DateTime dia, TimeSpan horaretirada,TimeSpan horadevolucao, int id)
         {
             try
@@ -49,12 +51,21 @@ namespace AlmoxarifadoAPI.Controllers
 
 
         // GET: api/Agendamento/5
-        public IHttpActionResult Get(int ID)
+        public IHttpActionResult Get()
         {
             try
             {
+                var Id = "";
+                var identity = User.Identity as ClaimsIdentity;
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    Id = claims.First(x => x.Type == "Id").Value;
+
+                }
+                var idUsuario = Convert.ToInt32(Id);
                 AgendamentoRepositorio repo = new AgendamentoRepositorio();
-                var agend = repo.PesquisarAgendamentoPorIDUser(ID);
+                var agend = repo.PesquisarAgendamentoPorIDUser(idUsuario);
                 return Ok(agend);
             }
             catch (Exception ex)
@@ -72,7 +83,7 @@ namespace AlmoxarifadoAPI.Controllers
             if (identity != null)
             {
                 IEnumerable<Claim> claims = identity.Claims;
-                Id = claims.First(x => x.Issuer == "Id").Value;
+                Id = claims.First(x => x.Type == "Id").Value;
 
             }
             agendamento.IdUsuario = Convert.ToInt32(Id);

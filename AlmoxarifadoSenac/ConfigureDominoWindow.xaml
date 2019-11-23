@@ -11,7 +11,7 @@
         <Label Content="Configurações" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
             FontSize="25" FontWeight="Bold"/>
 
-        <TextBox x:Name="txDominio"
+        <TextBox x:Name="txtDominio"
             materialDesign:HintAssist.Hint="Dominio" MaxLength="100"
             FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="10,58,0,0" Width="318"  />

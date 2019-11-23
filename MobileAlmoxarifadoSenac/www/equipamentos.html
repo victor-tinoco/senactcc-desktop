@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Especific page CSS -->
+    <link rel="stylesheet" href="css/style-equipamentos.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Modal CSS -->
+    <link rel="stylesheet" href="css/style-agendamento.css">
+    <link rel="stylesheet" href="JS/jquery-ui-1.12.1.custom/jquery-ui.css">
+
+    <link rel="icon" type="imagem/png" href="/IMG/icon.png" />
+
+    <title>Equipamentos | Almoxarifado Senac</title>
+</head>
+
+<body>
+    
+
+
+
+    <!-- Mobile Version -->
+   
+        <div class="container-fluid">
+            <header class="header p-3 header-mobile-cont row">
+                <div class="font-weight-bold col p-0 d-flex justify-content-between">
+                    <div></div>
+                    <div id="navbar-title w-100 d-flex justify-content-center">ALMOXARIFADO</div>
+                    <a href="#" onclick="expandMenu()"><i class="fas fa-bars d-flex h-100 d-flex align-items-center"
+                            id="navbar-title"></i></a>
+                </div>
+            </header>
+
+            <!-- Menu Mobile (hide, show) -->
+            <div class="menu-drop-mobile row" id="menu-mobile" style="display: none;">
+                <div class="col p-0">
+                    <div class="d-flex align-items-center p-2">
+                        <div class="d-inline circleProfile d-flex align-items-center justify-content-center"
+                            style="background-color: #e2e2e2; color: #005594;">
+                            VT
+                        </div>
+                        <div class="d-inline pl-2" style="font-weight: bold; color: white;">
+                            Victor Tinoco
+                        </div>
+                    </div>
+                    <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
+                    <a href="index.html" class="d-block" class="link-drop">Sair</a>
+                </div>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar-mobile py-2 px-3 row">
+                <div class="d-flex align-items-center justify-content-start">
+                    <label for="searchbar" class="m-0"><i name="search" class="fas fa-search btn-with-icon"></i></label>
+
+                    <input type="text" id="searchbar" name="search" class="pl-3 search-input" placeholder="Pesquisar">
+                </div>
+                <div class="dropleft">
+                    <button class="btn-with-icon p-0 dropleft" id="filter-btn" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i name="filter" class="fas fa-filter"></i>
+                    </button>
+                    <div class="p-3 dropdown-menu dropdown-menu-left drop-filter shadow-none"
+                        aria-labelledby="filter-btn">
+                        <div class="dropfilter-header">Categorias</div>
+                        <hr class="my-2">
+                        <a href="#"
+                            class="d-block p-2 rounded selected not-selected d-flex justify-content-between align-items-center"
+                            style="border: solid 1px">Limpar<i class="fas fa-times-circle"></i></a>
+                        <a href="#" class="d-block p-2 rounded selected">Câmeras</a>
+                        <a href="#" class="d-block p-2 rounded selected">Período</a>
+                        <a href="#" class="d-block p-2 rounded not-selected">Tripé</a>
+                        <a href="#" class="d-block p-2 rounded not-selected">Celular</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center flex-wrap p-4 row">
+                <div class="col p-0">
+                    <div id="equips-mobile" class="row">
+                        <!-- JSON -->
+                    </div>
+
+                    <!-- Paginação -->
+                    <div class="row">
+                        <ul class="col m-0 d-flex justify-content-center" style="list-style-type: none;">
+                            <li class="page-links">
+                                <</li> <li class="page-links"><a href="#" class="only">1</a>
+                            </li>
+                            <li class="page-links"><a href="#">2</a></li>
+                            <li class="page-links"><a href="#">3</a></li>
+                            <li class="page-links"><a href="#">></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+
+
+    <!-- Especific js pages -->
+    <script src="scripts/jquery-3.4.1.min.js">
+    </script>
+    <script src="scripts/js.cookie.min.js"></script>
+    <script src="scripts/autenticacao.js"></script>
+    <script type="text/javascript" src="scripts/API.js"></script>
+    <script type="text/javascript" src="scripts/datepicker.js"></script>
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/script-equips.js"></script>
+
+</body>
+
+</html>

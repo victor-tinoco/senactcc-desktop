@@ -215,7 +215,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                     "where equipamento.id_equipamento =  @IDEQUIPE " +
                     "and dthr_dia = @dia " +
                     "and dthr_retirada = @retirada " +
-                    "and dthr_devolucao = @devolucao " ; 
+                    "and dthr_devolucao = @devolucao) ";
                 coon.Execute(script, new
                 {
                     @IDUSER = agendamento.IdUsuario,
@@ -235,21 +235,24 @@ namespace AlmoxarifadoSenacLib.Repositorios
         }
         public List<Agendamento> PesquisarAgendamentoPorIDUser(int ID)
         {
-            List<Agendamento> agendamento;
+            List<Agendamento> agendamentos;
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
             {
                 string script =
 
             "select  " +
             "Usuario.id_usuario IdUsuario," +
-            "nm_usuario NomeUsuario," +
-            "nm_equipamento NomeEquipamento," +
-            "nm_categoria Categoria," +
+            "agendamento.id_agendamento Id," +
+            "equipamento.id_equipamento IdEquipamento," +
+            "usuario.id_usuario IdUsuario," +
+            "id_usuario_alteracao IdUsuarioAlteracao," +
+            "equipamento.id_equipamento IdEquipamento," +
+            "dt_agendamento DataAgendamento," +
             "dthr_dia Dia," +
             "dthr_retirada DataHoraRetirada," +
             "dthr_devolucao  DataHoraDevolucao," +
             "ds_devolucao StatusDevolucao," +
-            "count(nmr_patrimonio)  Quantidade " +
+            "count(nmr_patrimonio) Quantidade " +
             "from Equipamento " +
             "inner join " +
             "Patrimonio on Equipamento.id_equipamento = Patrimonio.id_equipamento " +
@@ -275,11 +278,26 @@ namespace AlmoxarifadoSenacLib.Repositorios
             "dthr_devolucao," +
             "ds_devolucao," +
             "dthr_retirada," +
-            "nm_usuario";
+            "nm_usuario," +
+            "equipamento.id_equipamento," +
+            "agendamento.id_agendamento," +
+            "Agendamento.dt_agendamento," +
+            "agendamento.id_usuario_alteracao ";
 
-                agendamento = conn.Query<Agendamento>(script, new { @IDUSER = ID}).ToList();
+                agendamentos = conn.Query<Agendamento>(script, new { @IDUSER = ID}).ToList();
+
+                foreach (var agendamento in agendamentos)
+                {
+                    EquipamentoRepositorio repoEquip = new EquipamentoRepositorio();
+                    agendamento.Equipamento = repoEquip.ConsultarPorId(agendamento.IdEquipamento);
+
+                    UsuarioRepositorio repoUsuario = new UsuarioRepositorio();
+                    agendamento.Usuario = repoUsuario.ConsultarPorID(agendamento.IdUsuario);
+                    agendamento.UsuarioAlteracao = repoUsuario.ConsultarPorID(agendamento.IdUsuarioAlteracao);
+                }
             }
-            return agendamento;
+
+            return agendamentos;
         }
         public int ConsultarPorId(int Id)
         {

@@ -45,7 +45,9 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 }
                 catch(Exception e)
                 {
-                    return false;
+                    throw new Exception("Não foi possível conectar ao Dominio. " +
+                   "Verifique se as configurações estão corretas. ");
+        
                 }
             }
            
