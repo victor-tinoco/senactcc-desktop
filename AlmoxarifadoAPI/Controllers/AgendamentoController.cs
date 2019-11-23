@@ -12,8 +12,7 @@ using System.Web.Http.Cors;
 
 namespace AlmoxarifadoAPI.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    [Authorize]
+
     public class AgendamentoController : ApiController
     {
         // GET: api/Agendamento

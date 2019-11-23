@@ -138,9 +138,9 @@ $('.confirm-btn').click(function(){
 			$('.confirm-btn').text('Carregando...')
 		}, function(dados){
 			$('.confirm-btn').removeAttr('disabled', 'disabled');
-			$('.confirm-btn').text('Confirmar')
-			$('#modalequip').modal('hide');
+			$('.confirm-btn').text('Confirmar');
 			setTimeout(() => { window.alert('Agendamento efetuado com sucesso.') }, 2000); 
+			window.location.replace("carteira.html");
 		}, function(dados){
 			window.alert('Ocorreu um erro.')
 		})

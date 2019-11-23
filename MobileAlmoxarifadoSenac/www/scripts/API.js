@@ -1,7 +1,7 @@
-const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
-const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
-const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
-const urlBaseApiLogin = "http://localhost:59934/api/Login/";
+const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
+const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
+const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
+const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
 
 function ApiCategoria() {
     var api = new Object;
