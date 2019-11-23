@@ -12,10 +12,13 @@ using System.Web.Http.Cors;
 
 namespace AlmoxarifadoAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Authorize]
 
     public class AgendamentoController : ApiController
     {
         // GET: api/Agendamento
+
         public IHttpActionResult Get(DateTime dia, TimeSpan horaretirada,TimeSpan horadevolucao, int id)
         {
             try
