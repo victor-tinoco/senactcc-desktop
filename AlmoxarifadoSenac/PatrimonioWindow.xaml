@@ -30,7 +30,7 @@
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
             VerticalAlignment="Top" HorizontalAlignment="Left"            
             Margin="276,111,0,0" Click="BtnSalvar_Click" Content="SALVAR" Width="88"/>
-        <DataGrid x:Name="dgPatrimonios" HorizontalAlignment="Left" Height="262" Margin="10,147,0,0" FontSize="14" VerticalAlignment="Top" Width="354" CanUserDeleteRows="False">
+        <DataGrid x:Name="dgPatrimonios" HorizontalAlignment="Left"  Margin="10,147,0,0" FontSize="14" VerticalAlignment="Top" CanUserDeleteRows="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Ativar/Desativar Patrimônio" Click="OpcaoAtivarDesativar_Click"/>

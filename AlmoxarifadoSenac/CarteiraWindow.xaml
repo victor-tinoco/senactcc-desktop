@@ -32,7 +32,7 @@
             Style="{StaticResource MaterialDesignRaisedAccentButton}" VerticalAlignment="Top" HorizontalAlignment="Left"
             Margin="631,21,0,0" Content="LIMPAR" Click="BtnLimpar_Click"/>
 
-        <DataGrid x:Name="dgCarteira" AutoGenerateColumns="False" HorizontalAlignment="Left" Height="348" Margin="10,72,0,0" FontSize="14" VerticalAlignment="Top" Width="772">
+        <DataGrid x:Name="dgCarteira" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,72,0,0" FontSize="14" VerticalAlignment="Top" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Verificar Patrimonios" Click="VerificarPatrimonio_Click"/>

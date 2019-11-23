@@ -173,12 +173,15 @@ namespace AlmoxarifadoSenac
         public static ImageSource ByteToImage(byte[] imageData)
         {
             BitmapImage biImg = new BitmapImage();
-            MemoryStream ms = new MemoryStream(imageData);
+            if (imageData != null)
+            {
+                MemoryStream ms = new MemoryStream(imageData);
+            
             biImg.BeginInit();
             biImg.StreamSource = ms;
             biImg.EndInit();
-
-            ImageSource imgSrc = biImg as ImageSource;
+        }
+        ImageSource imgSrc = biImg as ImageSource;
 
             return imgSrc;
         }

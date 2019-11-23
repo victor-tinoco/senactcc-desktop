@@ -23,7 +23,7 @@
         Style="{StaticResource MaterialDesignRaisedAccentButton}"
         VerticalAlignment="Top" HorizontalAlignment="Left"            
         Margin="673,21,0,0" Content="ADICIONAR" Click="BtnAdicionar_Click"/>
-        <DataGrid x:Name="dgCategorias" HorizontalAlignment="Left" Height="381" Margin="10,72,0,-0.2" FontSize="14" VerticalAlignment="Top" Width="771">
+        <DataGrid x:Name="dgCategorias" HorizontalAlignment="Left"  Margin="10,72,0,-0.2" FontSize="14" VerticalAlignment="Top" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Alterar" Click="OpcaoAlterar_Click"/>
