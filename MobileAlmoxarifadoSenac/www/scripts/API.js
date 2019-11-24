@@ -1,7 +1,7 @@
 const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
 const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
 const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
-const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
+const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/LoginMobile/";
 
 function ApiCategoria() {
     var api = new Object;
