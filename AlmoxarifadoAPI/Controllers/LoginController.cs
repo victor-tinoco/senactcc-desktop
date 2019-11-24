@@ -14,12 +14,12 @@ using System.Security.Claims;
 using Microsoft.IdentityModel.Tokens;
 using System.Web.Http.Cors;
 
-namespace AlmoxarifadoAPI.Controllers
+ namespace AlmoxarifadoAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        private TokenGerado createToken(string username, int id)
+        public TokenGerado createToken(string username, int id)
         {
             //Data do Token
             DateTime issuedAt = DateTime.UtcNow;
@@ -57,16 +57,11 @@ namespace AlmoxarifadoAPI.Controllers
         // POST: api/Login
         public IHttpActionResult Post(Login login)
         {
-            bool loginvalido = false;
             UsuarioRepositorio repo = new UsuarioRepositorio();
             Usuario usuario;
             usuario = repo.ConsultarPorEmail(login.Usuario);
             Domain_Authentication domain = new Domain_Authentication(login.Usuario, login.Senha, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
             if (usuario != null && domain.IsValid())
-            {
-                loginvalido = true;
-            }
-            if (loginvalido == true)
             {
                 TokenGerado token = createToken(login.Usuario, usuario.Id);
                 return Ok(token);
