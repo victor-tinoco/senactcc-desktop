@@ -68,7 +68,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return agendamentos;
         }
-       
+
         public List<Agendamento> PesquisarAgendamento2(string filtro, DateTime filtroinicio, DateTime filtrofim)
         {
             List<Agendamento> agendamentos;
@@ -140,7 +140,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
                 conn.Execute(script, new { @ID = id });
             }
         }
-        public void Alterar(int idDevolucao,int IDusuarioAlteracao,int idAgendamento)
+        public void Alterar(int idDevolucao, int IDusuarioAlteracao, int idAgendamento)
         {
             using (SqlConnection coon = new SqlConnection(Conexao.ConsultarConexao()))
             {
@@ -159,9 +159,9 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
         }
 
-        public List<Agendamento> ConsultarAgendamento(DateTime dia, TimeSpan horaretirada,TimeSpan horadevolucao, int idEquip)
+        public List<Agendamento> ConsultarAgendamento(DateTime dia, TimeSpan horaretirada, TimeSpan horadevolucao, int idEquip)
         {
-           List <Agendamento> agendamento;
+            List<Agendamento> agendamento;
 
             using (SqlConnection coon = new SqlConnection(Conexao.ConsultarConexao()))
             {
@@ -191,9 +191,9 @@ namespace AlmoxarifadoSenacLib.Repositorios
               "dthr_dia ";
 
                 agendamento = coon.Query<Agendamento>(
-                     script, new { @IDEQUIPE = idEquip, @DIA = dia, @HORARETIRADA = horaretirada,@HORADEVOLUCAO = horadevolucao }).ToList();
+                     script, new { @IDEQUIPE = idEquip, @DIA = dia, @HORARETIRADA = horaretirada, @HORADEVOLUCAO = horadevolucao }).ToList();
             }
-                return agendamento;
+            return agendamento;
         }
         public void InserirAgendamento(Agendamento agendamento)
         {
@@ -233,7 +233,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
 
             }
         }
-        public List<Agendamento> PesquisarAgendamentoPorIDUser(int ID)
+        public List<Agendamento> PesquisarAgendamentoPorIDUser(int ID, string filtro, DateTime filtroinicio, DateTime filtrofim)
         {
             List<Agendamento> agendamentos;
             using (SqlConnection conn = new SqlConnection(Conexao.ConsultarConexao()))
@@ -254,9 +254,9 @@ namespace AlmoxarifadoSenacLib.Repositorios
             "ds_devolucao StatusDevolucao," +
             "count(nmr_patrimonio) Quantidade " +
             "from Equipamento " +
-            "inner join " +
+            "left join " +
             "Patrimonio on Equipamento.id_equipamento = Patrimonio.id_equipamento " +
-            "inner join " +
+            "left join " +
             "Categoria on Equipamento.id_equipamento = Categoria.id_categoria " +
             "left join " +
             "PatrimonioAgendado on Patrimonio.id_patrimonio = PatrimonioAgendado.id_patrimonio " +
@@ -267,7 +267,9 @@ namespace AlmoxarifadoSenacLib.Repositorios
             "left join " +
             "Usuario on Agendamento.id_usuario = Usuario.id_usuario " +
             "where " +
-            "Usuario.id_usuario = @IDUSER "+
+            "Usuario.id_usuario = @IDUSER " +
+            "AND nm_equipamento like '%' + @FILTRO + '%' " +
+            "AND dthr_dia BETWEEN  @FILTROINICIO AND @FILTROFIM " +
             "group by " +
             "Usuario.id_usuario," +
             "nm_equipamento," +
@@ -284,7 +286,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             "Agendamento.dt_agendamento," +
             "agendamento.id_usuario_alteracao ";
 
-                agendamentos = conn.Query<Agendamento>(script, new { @IDUSER = ID}).ToList();
+                agendamentos = conn.Query<Agendamento>(script, new { @IDUSER = ID, @FILTRO = filtro, @FILTROINICIO = filtroinicio, @FILTROFIM = filtrofim }).ToList();
 
                 foreach (var agendamento in agendamentos)
                 {
@@ -315,7 +317,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
             }
             return equipamento;
         }
-        
+
 
     }
 }

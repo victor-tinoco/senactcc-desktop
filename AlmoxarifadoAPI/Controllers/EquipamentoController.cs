@@ -11,11 +11,12 @@ namespace AlmoxarifadoAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Authorize]
+
     public class EquipamentoController : ApiController
     {
 
         // GET: api/Equipamento
-        public IHttpActionResult Get(string filtro,string categoria,int iniciopag = 0,int fimpag = 0   )
+        public IHttpActionResult Get(string filtro,string categoria,int iniciopag ,int fimpag)
         {
             try
             {
@@ -30,13 +31,13 @@ namespace AlmoxarifadoAPI.Controllers
             }
         }
    
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string filtro = "",string categoria = "")
         {
             try
             {
 
                 EquipamentoRepositorio repo = new EquipamentoRepositorio();
-                var equip = repo.Paginacao();
+                var equip = repo.Paginacao(filtro,categoria);
                 return Ok(equip);
             }
             catch (Exception ex)

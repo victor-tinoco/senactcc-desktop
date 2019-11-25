@@ -51,21 +51,23 @@ namespace AlmoxarifadoAPI.Controllers
 
 
         // GET: api/Agendamento/5
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(string filtro, DateTime filtroinicio, DateTime filtrofim)
         {
+            Agendamento agendamento = new Agendamento();
+            var Id = "";
+            var identity = User.Identity as ClaimsIdentity;
+            if (identity != null)
+            {
+                IEnumerable<Claim> claims = identity.Claims;
+                Id = claims.First(x => x.Type == "Id").Value;
+
+            }
+            var iduser = agendamento.IdUsuario = Convert.ToInt32(Id);
             try
             {
-                var Id = "";
-                var identity = User.Identity as ClaimsIdentity;
-                if (identity != null)
-                {
-                    IEnumerable<Claim> claims = identity.Claims;
-                    Id = claims.First(x => x.Type == "Id").Value;
-
-                }
-                var idUsuario = Convert.ToInt32(Id);
+                
                 AgendamentoRepositorio repo = new AgendamentoRepositorio();
-                var agend = repo.PesquisarAgendamentoPorIDUser(idUsuario);
+                var agend = repo.PesquisarAgendamentoPorIDUser(iduser,filtro,filtroinicio,filtrofim);
                 return Ok(agend);
             }
             catch (Exception ex)
