@@ -78,6 +78,14 @@ function ApiAgendamento() {
             error: function (data) { acaoErro(data); }
         })
     }
+    api.ConsultarIdUser = function(filtro,filtroinicio,filtrofim){
+        $.ajax({
+            url: urlBaseApiAgendamento + "?filtro="+filtro+"&filtroinicio="+filtroinicio +"&filtrofim="+filtrofim;
+            method: "GET",
+            success: function (data) { acaoSucesso(data); },
+            error: function (data) { acaoErro(data); }
+        })
+    }
 
     return api;
 }

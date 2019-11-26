@@ -51,7 +51,7 @@ namespace AlmoxarifadoAPI.Controllers
 
 
         // GET: api/Agendamento/5
-        public IHttpActionResult Get(string filtro, DateTime filtroinicio, DateTime filtrofim)
+        public IHttpActionResult Get(string filtro = "", DateTime filtroinicio, DateTime filtrofim)
         {
             Agendamento agendamento = new Agendamento();
             var Id = "";
