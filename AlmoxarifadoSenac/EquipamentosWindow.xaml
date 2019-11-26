@@ -29,7 +29,7 @@
     Margin="673,21,0,0" Click="BtnAdicionar_Click">
             ADICIONAR
         </Button>
-        <DataGrid x:Name="dgEquipamentos" HorizontalAlignment="Left" Height="354" Margin="10,72,0,-0.4" FontSize="14" VerticalAlignment="Top" Width="772" CanUserDeleteRows="False">
+        <DataGrid x:Name="dgEquipamentos" HorizontalAlignment="Left"  Margin="10,72,0,-0.4" FontSize="14" VerticalAlignment="Top" CanUserDeleteRows="False">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Alterar" Click="OpcaoAlterar_Click"/>

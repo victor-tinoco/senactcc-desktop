@@ -22,7 +22,7 @@
         Width="88"
         VerticalAlignment="Top" HorizontalAlignment="Left"
         Margin="276,63,0,0" Click="BtnBuscar_Click" Content="BUSCAR"/>
-        <DataGrid x:Name="dgPatrimonios" HorizontalAlignment="Left" Height="309" Margin="10,100,0,0" FontSize="14" VerticalAlignment="Top" Width="354" CanUserDeleteRows="False">
+        <DataGrid x:Name="dgPatrimonios" HorizontalAlignment="Left"  Margin="10,100,0,0" FontSize="14" VerticalAlignment="Top" CanUserDeleteRows="False">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding NumeroPatrimonio}" Width="293" Header="Patrimônio"/>
             </DataGrid.Columns>

@@ -9,7 +9,7 @@
         Background="{DynamicResource MaterialDesignPaper}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
     
-        Title="Funcionários" Height="450" Width="800" ContentRendered="Window_ContentRendered" WindowStartupLocation="CenterScreen">
+        Title="Usuarios" Height="450" Width="800" ContentRendered="Window_ContentRendered" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBox x:Name="txtPesquisar" MaxLength="50"
             FontSize="16"
@@ -25,7 +25,7 @@
             Style="{StaticResource MaterialDesignRaisedAccentButton}"
             VerticalAlignment="Top" HorizontalAlignment="Left"            
             Margin="673,21,0,0" Content="ADICIONAR" Click="BtnAdicionar_Click"/>
-        <DataGrid x:Name="dgFuncionarios" HorizontalAlignment="Left" Height="348" Margin="10,72,0,0" FontSize="14" VerticalAlignment="Top" Width="772">
+        <DataGrid x:Name="dgFuncionarios" HorizontalAlignment="Left" Margin="10,72,0,0" FontSize="14" VerticalAlignment="Top" >
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Alterar" Click="OpcaoAlterar_Click"/>
