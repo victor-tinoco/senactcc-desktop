@@ -11,7 +11,6 @@ namespace AlmoxarifadoAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Authorize]
-
     public class EquipamentoController : ApiController
     {
 
@@ -31,8 +30,16 @@ namespace AlmoxarifadoAPI.Controllers
             }
         }
    
-        public IHttpActionResult Get(string filtro = "",string categoria = "")
+        public IHttpActionResult Get(string filtro ,string categoria )
         {
+            if(filtro == null)
+            {
+                filtro = "";
+            }
+            if(categoria == null)
+            {
+                categoria = "";
+            }
             try
             {
 

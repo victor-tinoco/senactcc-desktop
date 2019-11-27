@@ -1,4 +1,4 @@
-var urlSite = '/';
+var urlSite = '';
 var api = ApiLogin();
 
 $(document).ready(function(){

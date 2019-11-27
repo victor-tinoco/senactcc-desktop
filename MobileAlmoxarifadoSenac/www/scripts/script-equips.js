@@ -40,10 +40,10 @@ $('.section-clear').click(function (){
 })
 
 // Atualiza quando altera a searchbar, passando qual o identificador (se é pra pegar o value da search bar mobile ou não)
-$('.searchInput').keydown(function () {
+$('.searchInput').keyup(function () {
     UpdateContent('.searchInput');
 })
-$('#searchbar').keydown(function () {
+$('#searchbar').keyup(function () {
     UpdateContent('#searchbar');
 })
 
