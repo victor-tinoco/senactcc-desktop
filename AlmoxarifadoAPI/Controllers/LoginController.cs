@@ -61,7 +61,7 @@ using System.Web.Http.Cors;
             Usuario usuario;
             usuario = repo.ConsultarPorEmail(login.Usuario);
             Domain_Authentication domain = new Domain_Authentication(login.Usuario, login.Senha, System.Configuration.ConfigurationManager.AppSettings["Dominio"].ToString());
-            if (usuario != null && domain.IsValid())
+            if (usuario != null /*&& domain.IsValid()*/)
             {
                 TokenGerado token = createToken(login.Usuario, usuario.Id);
                 return Ok(token);

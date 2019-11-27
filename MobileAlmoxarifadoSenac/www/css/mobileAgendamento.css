@@ -25,6 +25,14 @@
     color: rgb(0, 85, 148);
     
 }
+.img-mobile{
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    object-fit: cover;
+    object-position: center;
+    background-position: center;
+}
 
 .color-padrao {
     color: white;

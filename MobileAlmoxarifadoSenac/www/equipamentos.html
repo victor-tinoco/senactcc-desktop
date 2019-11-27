@@ -21,7 +21,7 @@
 
     <!-- Modal CSS -->
     <link rel="stylesheet" href="css/style-agendamento.css">
-    <link rel="stylesheet" href="JS/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="scripts/jquery-ui-1.12.1.custom/jquery-ui.css">
 
     <link rel="icon" type="imagem/png" href="/images/icon.png" />
 
@@ -67,7 +67,7 @@
                 <div class="d-flex align-items-center justify-content-start">
                     <label for="searchbar" class="m-0"><i name="search" class="fas fa-search btn-with-icon"></i></label>
 
-                    <input type="text" id="searchbar" name="search" class="pl-3 search-input" placeholder="Pesquisar">
+                    < <input type="text" id="searchInput" class="searchInput h-100" placeholder="Pesquisar">
                 </div>
                 <div class="dropleft">
                     <button class="btn-with-icon p-0 dropleft" id="filter-btn" data-toggle="dropdown"
@@ -95,8 +95,9 @@
                         <!-- JSON -->
                     </div>
 
-                    <!-- Paginação -->
-                    
+                    <div class="row pagination-js">
+                            <!-- JS/paginacao.js -->
+                        </div>
                 </div>
             </div>
         </div>
@@ -111,6 +112,8 @@
     <script type="text/javascript" src="scripts/API.js"></script>
     <script type="text/javascript" src="scripts/script.js"></script>
     <script type="text/javascript" src="scripts/script-equips.js"></script>
+    <script src="scripts/paginacao.js"> </script>
+
 
 </body>
 

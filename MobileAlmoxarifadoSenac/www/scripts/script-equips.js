@@ -93,23 +93,3 @@ function LoadEquipError(data) {
 
 
 
-// Search container 
-$(document).ready(function () {
-
-    $(".searchInput").click(function () {
-        $(".searchInput").addClass("expanded");
-        $("#search-icon").hide();
-        $("#back-icon").show();
-    })
-
-    $(".searchInput").blur(function () {
-        $(".searchInput").removeClass("expanded");
-        $("#back-icon").hide();
-        $("#search-icon").show();
-    })
-
-    // Não está funcionando
-    $('.search-icon-container').click(function () {
-        $('.searchInput').val('')
-    })
-});

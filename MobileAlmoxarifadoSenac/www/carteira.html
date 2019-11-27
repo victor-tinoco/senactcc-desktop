@@ -21,147 +21,53 @@
     <!-- CSS DESTA PAGE -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/style-carteira.css">
-    <link rel="stylesheet" href="JS/jquery-ui-1.12.1.custom/jquery-ui.css">
-
+    <link rel="stylesheet" href="scripts/jquery-ui-1.12.1.custom/jquery-ui.css">
     <link rel="icon" type="imagem/png" href="/IMG/icon.png" />
 
     <title>Carteira de Agendamentos | Almoxarifado Senac</title>
 </head>
 
 <body>
- 
+
     <!-- Mobile -->
-
-        <div class="header-navbar p-3">
-            <div id="navbar-content">
-                <a href="equipamentos.html"><i name="arrow-back"
-                        class="fas fa-arrow-left  d-flex h-100 d-flex align-items-center" id="return"></i></a>
-                <div id="navbar-title">AGENDAMENTOS</div>
-                <a href="#" onclick="expandMenu()"><i class="fas fa-bars d-flex h-100 d-flex align-items-center pr-2"
-                        id="navbar-title"></i></a>
+    <div class="container-fluid d-block d-sm-none">
+        <header class="header p-3 header-mobile-cont row">
+            <div class="font-weight-bold col p-0 d-flex justify-content-between">
+                <a href="equipamentos.html"><i class="fas fa-chevron-left d-flex h-100 d-flex align-items-center"
+                        id="return"></i></a>
+                <div id="navbar-title w-100 d-flex justify-content-center">AGENDAMENTOS</div>
+                <a href="#" class="menu-mobile-icon"><i
+                        class="fas fa-bars d-flex h-100 d-flex align-items-center"></i></a>
             </div>
+        </header>
+
+        <div class="menu-drop-mobile" style="display: none">
+            <div id="menu-mobile" class="row d-flex flex-column"></div>
         </div>
 
-        <!-- Menu Mobile (hide, show) -->
-        <div class="menu-drop-mobile" id="menu-mobile" style="display: none;">
-            <div class="d-flex align-items-center p-2">
-                <div class="d-inline circleProfile d-flex align-items-center justify-content-center"
-                    style="background-color: #e2e2e2; color: #005594;">
-                    VT
-                </div>
-                <div class="d-inline pl-2" style="font-weight: bold; color: white;">
-                    Victor Tinoco
-                </div>
-            </div>
-            <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
-            <a href="index.html" class="d-block" class="link-drop">Sair</a>
+        <div class="p-3 mb-4 row d-flex align align-items-center searchBar-mobile">
+            <label for="searchbar" class="m-0"><i name="search" class="fas fa-search btn-with-icon"></i></label>
+            <input type="text" id="searchBar-mobile" name="search" class="pl-3 search-input" placeholder="Pesquisar">
         </div>
 
-        <!-- BARRA DE PESQUISA -->
-        <div class="search-bar">
-            <div class="search-bar-content p-3">
-                <!-- BOTÃO DE PESQUISA -->
-                <div class="d-flex align-items-center justify-content-start">
-                    <label for="searchbar" class="m-0"><i name="search" class="fas fa-search btn-with-icon"></i></label>
-                    <!-- Caixaa de pesquisa -->
-                    <input type="text" id="searchbar" name="search" class="pl-3 search-input" placeholder="Pesquisar">
-                </div>
-                <!-- botão de filtro -->
-                <div class="dropleft">
-                    <button class="btn-with-icon p-0 dropleft" id="filter-btn" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i name="filter" class="fas fa-filter"></i>
-                    </button>
-                    <div class="p-3 dropdown-menu dropdown-menu-left shadow-none drop-filter shadow-none"
-                        aria-labelledby="filter-btn">
-                        <div class="dropfilter-header">Filtrar por:</div>
-                        <hr class="my-2">
-                        <a href="#" class="d-block p-2 rounded ">Equipamento</a>
-                        <a href="#" class="d-block p-2 rounded ">Período</a>
-                        <a href="#" class="d-block p-2 rounded ">Devolução</a>
-                    </div>
-                </div>
+        <div class="row d-flex justify-content-between mb-4" id="filters">
+            <div class="col">
+                <label for="start-dp-mobile">
+                    <i class="fas fa-calendar-alt"></i>
+                    Data Início
+                </label>
+                <input type="text" id="start-dp-mobile" class="thisMonthFirstDay px-3 py-2 rounded w-100 datejs">
+            </div>
+
+            <div class="col">
+                <label for="end-dp-mobile">
+                    <i class="fas fa-calendar-alt icon-titles"></i>
+                    Data Fim
+                </label>
+                <input type="text" id="end-dp-mobile" class="thisMonthLastDay px-3 py-2 rounded w-100 datejs">
             </div>
         </div>
-
-        <!-- BOTÕES DE DATA -->
-        <div class="pt-4 container-fluid">
-            <div class="row">
-                <div class="col-6">
-                    <div class="letters">
-                        <label for="start-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Início</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="start-dp" class="today datejs border-0 colordate">
-                    </div>
-                </div>
-
-                <div class="col-6">
-                    <div class="letters">
-                        <label for="end-dp" class="btn-titles"><i class="fas fa-calendar-alt icon-titles"></i>Data
-                            Fim</label>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="end-dp" class="tomorrow datejs border-0 colordate">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- DIV ENVOLTÓRIA DA LISTA DE ITENS -->
-        <div class="equipment">
-
-            <!-- LISTA DE ITENS -->
-            <ul class="equipment-list">
-
-                <!-- Os ID's estão definidos manualmente, por uma questão ilustrativa -->
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Câmera Nikon D5300 </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="details-1"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details" id="">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Câmera Canon EOS Rebel T6 Ef-s </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="details-2"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-
-                <li class="equipment-list-item">
-                    <span class="equip-row">
-                        <span class="equip-name"> Lente Canon 800mm </span>
-                        <ion-icon name="arrow-dropdown" class="show-more hidn" id="show-details-3"
-                            onclick="toggleDetails(this)"></ion-icon>
-                    </span>
-                    <div class="equip-details">
-                        Patrimônio: 130738299<br>
-                        Data: 17/05/2019<br>
-                        Períodos: Manhã<br>
-                        Devolução: Aguardando<br>
-                    </div>
-                </li>
-            </ul>
-
-
-    
-
+        <div class="agendamentos-cards"></div>
     </div>
 
     <!-- JavaScript (Opcional) -->
@@ -182,13 +88,12 @@
         src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.1/js/bootstrap-datepicker.min.js'></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script src="scripts/carteira.js"></script>
     <script src="scripts/datepicker.js"></script>
     <script src="scripts/script-carteira.js"></script>
-    <script src="scripts/script.js"></script>
+    <script src="scripts/js.cookie.min.js"></script>
+    <script src="scripts/API.js"></script>
+    <script src="scripts/autenticacao.js"></script>
     <script type="text/javascript" src="scripts/profile-menu.js"></script>
-
-    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </body>
 
 </html>

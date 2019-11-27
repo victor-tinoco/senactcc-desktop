@@ -1,7 +1,11 @@
-const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
-const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
-const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
-const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
+// const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipamento/";
+// const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
+// const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
+// const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
+const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
+const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
+const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
+const urlBaseApiLogin = "http://localhost:59934/api/Login/";
 
 function ApiCategoria() {
     var api = new Object;
@@ -50,7 +54,6 @@ function ApiEquipamento() {
             error: function (data) { acaoErro(data); }
         })        
     }
-
     return api;
 }
 
@@ -60,6 +63,14 @@ function ApiAgendamento() {
     api.ConsultarDisponibilidade = function (dia, horaRetirada, horaDevolucao, id, acaoSucesso, acaoErro) {
         $.ajax({
             url: urlBaseApiAgendamento + "?dia=" + dia + "&horaretirada=" + horaRetirada + "&horadevolucao=" + horaDevolucao + "&id=" + id ,
+            method: "GET",
+            success: function (data) { acaoSucesso(data); },
+            error: function (data) { acaoErro(data); }
+        })
+    }
+    api.Listar = function (filter, initdate, enddate, acaoSucesso, acaoErro) {
+        $.ajax({
+            url: urlBaseApiAgendamento + "?filtro=" + filter + "&filtroinicio=" + initdate + "&filtrofim=" + enddate,
             method: "GET",
             success: function (data) { acaoSucesso(data); },
             error: function (data) { acaoErro(data); }
