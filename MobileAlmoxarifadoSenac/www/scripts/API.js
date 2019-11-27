@@ -2,10 +2,10 @@ const urlBaseApiEquipamento = "http://10.136.52.25/apipatrimoniosenac/api/equipa
 const urlBaseApiAgendamento = "http://10.136.52.25/apipatrimoniosenac/api/agendamento/";
 const urlBaseApiCategoria = "http://10.136.52.25/apipatrimoniosenac/api/categoria/";
 const urlBaseApiLogin = "http://10.136.52.25/apipatrimoniosenac/api/Login/";
-// const urlBaseApiEquipamento = "http://localhost:59934/api/equipamento/";
-// const urlBaseApiAgendamento = "http://localhost:59934/api/agendamento/";
-// const urlBaseApiCategoria = "http://localhost:59934/api/categoria/";
-// const urlBaseApiLogin = "http://localhost:59934/api/Login/";
+// const urlBaseApiEquipamento = "http://192.168.11.13/AlmoxarifadoAPI/api/equipamento/";
+// const urlBaseApiAgendamento = "http://192.168.11.13/AlmoxarifadoAPI/api/agendamento/";
+// const urlBaseApiCategoria = "http://192.168.11.13/AlmoxarifadoAPI/api/categoria/";
+// const urlBaseApiLogin = "http://192.168.11.13/AlmoxarifadoAPI/api/Login/";
 
 function ApiCategoria() {
     var api = new Object;
