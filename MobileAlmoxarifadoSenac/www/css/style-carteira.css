@@ -75,6 +75,20 @@ hr {
 	margin: 10px 0px;
 	border: 0.5px solid #e0e0e0;
 }
+.header-mobile-cont {
+    font-size: 18px;
+    color: white;
+}
+
+.header-mobile-cont a {
+    color: white;
+}
+
+.header-mobile-cont a:hover, .header-mobile-cont a:active, .header-mobile-cont a:focus {
+    text-decoration: none;
+    color: rgb(219, 219, 219);
+    outline: none;
+}
 
 .searchBar-mobile {
     background-color: white;

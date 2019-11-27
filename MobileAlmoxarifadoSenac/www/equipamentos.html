@@ -40,28 +40,17 @@
                 <div class="font-weight-bold col p-0 d-flex justify-content-between">
                     <div></div>
                     <div id="navbar-title w-100 d-flex justify-content-center">ALMOXARIFADO</div>
-                    <a href="#" onclick="expandMenu()"><i class="fas fa-bars d-flex h-100 d-flex align-items-center"
-                            id="navbar-title"></i></a>
+                    <a href="#" class="menu-mobile-icon"><i class="fas fa-bars d-flex h-100 d-flex align-items-center"></i></a>
                 </div>
             </header>
 
             <!-- Menu Mobile (hide, show) -->
-            <div class="menu-drop-mobile row" id="menu-mobile" style="display: none;">
-                <div class="col p-0">
-                    <div class="d-flex align-items-center p-2">
-                        <div class="d-inline circleProfile d-flex align-items-center justify-content-center"
-                            style="background-color: #e2e2e2; color: #005594;">
-                            VT
-                        </div>
-                        <div class="d-inline pl-2" style="font-weight: bold; color: white;">
-                            Victor Tinoco
-                        </div>
+          
+            <div class="menu-drop-mobile" style="display: none">
+                    <div id="menu-mobile" class="row d-flex flex-column">
+                        
                     </div>
-                    <a href="carteira.html" class="d-block" class="link-drop">Carteira de Agendamentos</a>
-                    <a href="index.html" class="d-block" class="link-drop">Sair</a>
                 </div>
-            </div>
-
             <!-- Search Bar -->
             <div class="search-bar-mobile py-2 px-3 row">
                 <div class="d-flex align-items-center justify-content-start">
@@ -114,6 +103,7 @@
     <script type="text/javascript" src="scripts/script-equips.js"></script>
        <script src="scripts/paginacao.js"> </script>
 
+    <script src="scripts/profile-menu.js"></script>
 </body>
 
 </html>
