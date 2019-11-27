@@ -1,11 +1,9 @@
 
 'Equipamentos para a vDesktop'
 $(document).ready(function () {
-    UpdateContent();
+    UpdateContent('', '');
     ListCategories();
-    
 });
-
 
 function ListCategories() {
     api = ApiCategoria();
@@ -15,50 +13,60 @@ function ListCategories() {
             var html = '<div class="section d-block">' + categoria.Nome + '</div>';
             text += html
         })
-        $('.categories-list').html(text);
+        $('.categories-list').append(text);
+        $('.drop-filter').append(text);
 
         $('.section').click(function (){
-            var section = $(this);
             $('.section').each(function (){ 
                 $(this).removeClass('selected-section')
             })
+            var section = $(this);
             section.addClass('selected-section');
-        
-            var searchBarIdentity = $('.searchInput');
-            var selectedCategory = section.text();
-        
-            UpdateContent(searchBarIdentity, selectedCategory) 
+
+            const filter = $('.searchInput').val();
+            const category = section.text();
+            callUpdatePagination(1);
+            UpdateContent(filter, category); 
         })
     }, function () { window.alert('Ocorreu um erro.') })
 }
 
 $('.section-clear').click(function (){
-    UpdateContent();
+    UpdateContent('', '');
+    $('#searchbar, .searchInput').val('');
     $('.section').each(function() {
         $(this).removeClass('selected-section')
     })
+    callUpdatePagination(1);
 })
 
-// Atualiza quando altera a searchbar, passando qual o identificador (se é pra pegar o value da search bar mobile ou não)
 $('.searchInput').keyup(function () {
-    UpdateContent('.searchInput');
+    callUpdatePagination(1);
 })
+
 $('#searchbar').keyup(function () {
-    UpdateContent('#searchbar');
+    callUpdatePagination(1);
 })
 
 // função que atualiza a lista de equipamentos 
-function UpdateContent(searchBarIdentity, selectedCategory) {
-    var api = ApiEquipamento();
-    var filtro = $(searchBarIdentity).val();
-    if (filtro == null)
-        filtro = "";
-    var categoria = selectedCategory;
-    if (categoria == null)
-        categoria = "";
-    var iniciopag = 0;
-    var fimpag = 12;
-    api.Listar(filtro, categoria, iniciopag, fimpag, LoadEquipSuccess, LoadEquipError);
+function UpdateContent(filter, category, page) {
+    let startEquip, endEquip;
+    if (page == null) {
+        if ($('.only').length > 0) {
+            page = (screen.width <= 576) ? parseInt($('.d-md-none').find('.only').text()) : parseInt($('.d-md-block').find('.only').text());
+        } else {
+            page = 1;
+        }
+    }
+
+    endEquip = page * 12;
+    startEquip = endEquip - 12;
+
+    filter = (filter != null || filter != undefined) ? filter : '';
+    category = (category != null || category != undefined) ? category : '';
+    
+    const api = ApiEquipamento();
+    api.Listar(filter, category, startEquip, endEquip, LoadEquipSuccess, LoadEquipError);
 }
 
 function LoadEquipSuccess(data) {
@@ -93,3 +101,23 @@ function LoadEquipError(data) {
 
 
 
+// Search container 
+$(document).ready(function () {
+
+    $(".searchInput").click(function () {
+        $(".searchInput").addClass("expanded");
+        $("#search-icon").hide();
+        $("#back-icon").show();
+    })
+
+    $(".searchInput").blur(function () {
+        $(".searchInput").removeClass("expanded");
+        $("#back-icon").hide();
+        $("#search-icon").show();
+    })
+
+    // Não está funcionando
+    $('.search-icon-container').click(function () {
+        $('.searchInput').val('')
+    })
+});
