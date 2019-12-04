@@ -172,8 +172,7 @@ namespace AlmoxarifadoSenacLib.Repositorios
               "dthr_devolucao DataHoraDevolucao , " +
               " dthr_dia Dia, " +
               "((select count(id_patrimonio) from Patrimonio join equipamento on patrimonio.id_equipamento = equipamento.id_equipamento where equipamento.id_equipamento = @IDEQUIPE and patrimonio.fl_status = 1) - " +
-              "(select count(PatrimonioAgendado.id_agendamento) from PatrimonioAgendado join Agendamento on PatrimonioAgendado.id_agendamento = Agendamento.id_agendamento where dthr_dia = @DIA and ((dthr_retirada between @HORARETIRADA and @HORADEVOLUCAO) or (dthr_devolucao between @HORARETIRADA and @HORADEVOLUCAO)))) Quantidade " +
-              "FROM Agendamento " +
+              "(select count(PatrimonioAgendado.id_agendamento) from PatrimonioAgendado join Agendamento on PatrimonioAgendado.id_agendamento = Agendamento.id_agendamento join Patrimonio on PatrimonioAgendado.id_patrimonio = Patrimonio.id_patrimonio join Equipamento on Equipamento.id_equipamento = patrimonio.id_equipamento  where equipamento.id_equipamento = @IDEQUIPE and dthr_dia = @DIA and ((dthr_retirada between @HORARETIRADA and @HORADEVOLUCAO) or (dthr_devolucao between @HORARETIRADA and @HORADEVOLUCAO)))) Quantidade"+
               "left join " +
               "PatrimonioAgendado on Agendamento.id_agendamento = PatrimonioAgendado.id_agendamento " +
               "left join " +
