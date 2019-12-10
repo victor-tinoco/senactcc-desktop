@@ -22,7 +22,7 @@ Neste repositório se encontra o sistema administrativo desenvolvido em .Net C#,
 - Interop Excel - Para exportação de dados diretamente para arquivo *.xlsx*
 
 ## Versionamento
-Usamos o Git para controles de versão. Inicialmente o projeto foi estruturado e desenvolvido num [repositório](https://dev.azure.com/teambluescreen/Projeto%20Integrador/_git/Desktop) no Azure Repos, que posteriormente foi importado aqui.
+Usamos o Git para controles de versão. Inicialmente o projeto foi estruturado e desenvolvido num [repositório](https://dev.azure.com/teambluescreen/Projeto%20Integrador/_git/Desktop) no Azure DevOps, que posteriormente foi importado aqui.
 
 ## Autores
 - **Victor Martins Tinoco** - [victrmart](https://github.com/victrmart/)
